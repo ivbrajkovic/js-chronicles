@@ -45,7 +45,7 @@ One line. No loops, no clutter, just clear intent: _“Filter the even numbers.�
 
 Clean code isn’t just about looking nice—it’s about working smarter. Imagine debugging a problem or making changes six months later. Do you want to struggle with a wall of confusing logic, or read code that practically explains itself? Clean code makes your life easier, whether you’re fixing a bug or passing your work to someone else.
 
-While there are times when imperative code is useful—like when **performance needs absolute control**—but, declarative code is often the better choice for readability and maintainability.
+While there are times when imperative code is useful—like when **performance demands absolute control**—in most other cases, declarative code is the better choice for readability and maintainability.
 
 Here’s a quick side-by-side comparison:
 | Imperative                   | Declarative                   |
