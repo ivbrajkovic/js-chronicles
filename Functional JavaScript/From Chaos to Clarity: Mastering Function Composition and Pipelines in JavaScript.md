@@ -69,10 +69,7 @@ Enter the Single Responsibility Principle—the idea that every function should 
 
 ## The Potion of Purity ⚗️
 
-A **pure function** is like a perfectly crafted incantation. It yields the same result for the same inputs, with no side effects. No global variables, no hidden dependencies—just wizardry you can rely on, the foundation for workflows you can trust. Pure functions simplify testing and debugging by eliminating unexpected dependencies and external influences.
-
-A **pure function** is like a perfectly crafted incantation. It depends only on its inputs, producing consistent results without side effects. No global variables, no hidden dependencies—just wizardry you can rely on, the foundation for workflows you can trust. Pure functions simplify testing and debugging by eliminating unexpected dependencies and external influences.
-
+A **pure function** is like casting a perfectly crafted spell—it yields the same result for the same input, every time. It doesn’t create side effects or change anything outside itself, ensuring no surprises. This reliable wizardry simplifies testing, makes debugging painless, and ensures the function is highly reusable.
 
 Let’s see the difference between these two spells. First, here’s an impure function—a rough spell:
 ```typescript
@@ -100,7 +97,7 @@ const applyDiscount = (price: number, discountRate: number) =>
 console.log(applyDiscount(100, 0.1)); // 90
 console.log(applyDiscount(100, 0.1)); // 90
 ```
-This function is **pure magic**: it depends only on its inputs and produces results without affecting any external state. It’s easier to test, reuse, and reason about, ensuring consistent and predictable behavior.
+This function is **pure magic**: its simplicity and isolation make it easy to test and reuse. By being pure, it ensures predictable behavior and builds confidence in your code.
 
 When you break tasks into these small, magical units, you weave a codebase that’s not just robust but a pleasure to work with. So the next time you craft a function, ask yourself:
 _"Is this spell focused and reliable—or will it become a cursed artifact poised to unleash chaos?"_
