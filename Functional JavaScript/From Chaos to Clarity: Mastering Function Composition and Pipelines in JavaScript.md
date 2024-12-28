@@ -89,8 +89,6 @@ console.log(applyDiscount(100)); // Output: 98
 discount = 100;
 console.log(applyDiscount(100)); // Output: -1 🤯
 ```
-This function tampers with global state, making its behavior unpredictable. Like a spell gone awry, it’s unreliable and frustrating to work with, making debugging or reuse a nightmare. Its output depends not only on the input `price` but also on the constantly changing `discount` variable. If `discount` changes elsewhere, this function's behavior can become hard to track, leading to unpredictable bugs.
-
 This function changes global state, making its behavior unpredictable. Like a spell gone awry, it’s unreliable and frustrating, turning debugging and reuse into a nightmare. Its output depends not just on the input `price` but also on the changing `discount` variable, which can cause hard-to-find bugs if modified elsewhere.
 
 Now, let’s craft a pure function:
