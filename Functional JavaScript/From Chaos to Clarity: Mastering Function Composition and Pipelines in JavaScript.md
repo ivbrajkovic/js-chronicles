@@ -58,3 +58,42 @@ Once you embrace clean, declarative code, you’ll wonder how you ever lived wit
 
 ---
 
+<a id="purity"></a>
+## The Magic of Pure Functions 🪄
+
+Have you ever encountered a function that tries to do everything—fetch data, process inputs, log outputs, and perhaps even brew coffee? These multitasking monstrosities might seem efficient, but they’re really **cursed artifacts**: fragile, difficult to understand, and hard to maintain. Surely, there’s a better way to write functions—one that’s clear, straightforward, and easy to reason about.
+
+>_Simplicity is prerequisite for reliability._ — [Edsger W. Dijkstra]( https://en.wikipedia.org/wiki/Edsger_W._Dijkstra)
+
+Enter the Single Responsibility Principle—the idea that every function should do one thing well, making your code easy to read, debug, and reuse. Each function becomes a self-contained artifact of precision, ready to cast when needed. But just having a single responsibility isn’t enough. To truly master simplicity, a function needs purity—the gold standard for writing code that’s both elegant and dependable.
+
+## The Potion of Purity ⚗️
+
+A **pure function** is like a perfectly crafted incantation. It yields the same result for the same inputs, with no side effects. No global variables, no hidden dependencies—just wizardry you can rely on, the foundation for workflows you can trust. Pure functions simplify testing and debugging by eliminating unexpected dependencies and external influences.
+
+Let’s see the difference between these two spells. First, here’s an impure function—a rough spell:
+```typescript
+let discount = 0;	
+
+const applyDiscount = (price: number) => {
+  discount += 1; // Modifies a global variable! 😈
+  return price - discount;
+};
+```
+This function tampers with global state, making its behavior unpredictable. Like a spell gone awry, it’s unreliable and frustrating to work with, making debugging or reuse a nightmare. Its output depends not only on the input `price` but also on the constantly changing `discount` variable.
+
+Now, let’s craft a pure function:
+```typescript
+const applyDiscount = (price: number, discountRate: number) => 
+  price * (1 - discountRate);
+```
+This function is **pure magic**: it depends only on its inputs and produces results without affecting any external state. It’s easier to test, reuse, and reason about, ensuring consistent and predictable behavior.
+
+When you break tasks into these small, magical units, you weave a codebase that’s not just robust but a pleasure to work with. So the next time you craft a function, ask yourself:
+_"Is this spell focused and reliable—or will it become a cursed artifact poised to unleash chaos?"_
+
+---
+
+
+
+
