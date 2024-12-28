@@ -71,6 +71,9 @@ Enter the Single Responsibility Principle—the idea that every function should 
 
 A **pure function** is like a perfectly crafted incantation. It yields the same result for the same inputs, with no side effects. No global variables, no hidden dependencies—just wizardry you can rely on, the foundation for workflows you can trust. Pure functions simplify testing and debugging by eliminating unexpected dependencies and external influences.
 
+A **pure function** is like a perfectly crafted incantation. It depends only on its inputs, producing consistent results without side effects. No global variables, no hidden dependencies—just wizardry you can rely on, the foundation for workflows you can trust. Pure functions simplify testing and debugging by eliminating unexpected dependencies and external influences.
+
+
 Let’s see the difference between these two spells. First, here’s an impure function—a rough spell:
 ```typescript
 let discount = 0;	
@@ -79,13 +82,25 @@ const applyDiscount = (price: number) => {
   discount += 1; // Modifies a global variable! 😈
   return price - discount;
 };
+
+// Calling this multiple times will give different results, even for the same input!
+console.log(applyDiscount(100)); // Output: 99
+console.log(applyDiscount(100)); // Output: 98
+discount = 100;
+console.log(applyDiscount(100)); // Output: -1 🤯
 ```
-This function tampers with global state, making its behavior unpredictable. Like a spell gone awry, it’s unreliable and frustrating to work with, making debugging or reuse a nightmare. Its output depends not only on the input `price` but also on the constantly changing `discount` variable.
+This function tampers with global state, making its behavior unpredictable. Like a spell gone awry, it’s unreliable and frustrating to work with, making debugging or reuse a nightmare. Its output depends not only on the input `price` but also on the constantly changing `discount` variable. If `discount` changes elsewhere, this function's behavior can become hard to track, leading to unpredictable bugs.
+
+This function changes global state, making its behavior unpredictable. Like a spell gone awry, it’s unreliable and frustrating, turning debugging and reuse into a nightmare. Its output depends not just on the input `price` but also on the changing `discount` variable, which can cause hard-to-find bugs if modified elsewhere.
 
 Now, let’s craft a pure function:
 ```typescript
 const applyDiscount = (price: number, discountRate: number) => 
   price * (1 - discountRate);
+
+// Always consistent for the same inputs
+console.log(applyDiscount(100, 0.1)); // 90
+console.log(applyDiscount(100, 0.1)); // 90
 ```
 This function is **pure magic**: it depends only on its inputs and produces results without affecting any external state. It’s easier to test, reuse, and reason about, ensuring consistent and predictable behavior.
 
