@@ -3,7 +3,7 @@
 ## **Table of Contents**  
 - [The Art of Clean Code](#intro)  
 - [The Magic of Pure Functions](#purity)
-- [Building Bridges: From Domain to Implementation](#composition)
+- [Building Bridges with Function Composition](#composition)
 - [Streamlining Code: The Power of Pipelines](#pipeline)
 - [Adapting Pipelines for Evolving Needs](#adaptability)
 - [Avoiding the Traps of Function Composition](#pitfalls)
@@ -54,7 +54,7 @@ Here’s a quick side-by-side comparison:
 | Step-by-step instructions    | Expresses intent clearly      |
 | Harder to refactor or extend | Easier to adjust and maintain |
 
-Once you embrace clean, declarative code, you’ll wonder how you ever lived without it. It’s the foundation for building more predictable, maintainable systems—and it all starts with the magic of pure functions. So grab your coding wand (or a strong coffee ☕), and let’s embark on this magical journey toward cleaner, more powerful code. 🌟✨
+Once you embrace clean, declarative code, you’ll wonder how you ever lived without it. It’s the foundation for building more predictable, maintainable systems—and it all starts with the magic of pure functions. So grab your coding wand (or a strong coffee ☕), and let’s embark on this journey toward cleaner, more powerful code. 🌟✨
 
 ---
 
@@ -101,6 +101,54 @@ This function is **pure magic**: its simplicity and isolation make it easy to te
 
 When you break tasks into these small, magical units, you weave a codebase that’s not just robust but a pleasure to work with. So the next time you craft a function, ask yourself:
 _"Is this spell focused and reliable—or will it become a cursed artifact poised to unleash chaos?"_
+
+---
+
+<a id="composition"></a>
+## Building Bridges with Function Composition 🧩
+
+With pure functions in our arsenal, we’ve mastered the craft of creating reliable, self-contained tools. Like perfectly sculpted Lego bricks 🧱, they’re simple, reusable, and ready to assemble. But bricks alone don’t make a castle—it’s how you combine them that unlocks their full potential. This is the essence of **function composition**—assembling these bricks into elegant, functional systems that focus on solving domain-specific problems while abstracting away implementation details.
+
+Let’s see it in action with a simple workflow for calculating a shopping cart’s total. First, we define our reusable utility functions—the building blocks of our composition:
+
+```typescript
+type CartItem = { price: number };
+
+const roundToTwoDecimals = (value: number) =>
+  Math.round(value * 100) / 100;
+
+const calculateTotal = (cart: CartItem[]) =>
+  cart.reduce((total, item) => total + item.price, 0);
+
+const applyDiscount = (discountRate: number) => 
+  (total: number) => total * (1 - discountRate);
+```
+
+Now, we compose these functions into a single workflow:
+
+```typescript
+// Domain-specific logic derived from reusable utility functions
+const applyStandardDiscount = applyDiscount(0.2);
+
+const checkout = (cart: CartItem[]) =>
+  roundToTwoDecimals(
+    applyStandardDiscount(
+      calculateTotal(cart)
+    )
+  );
+
+const cart: CartItem[] = [
+  { price: 19.99 },
+  { price: 45.5 },
+  { price: 3.49 },
+];
+
+console.log(checkout(cart)); // Output: 55.18
+```
+
+Here, each function has a clear, focused purpose: summing prices, applying discounts, and formatting the result. By combining them, we create a logical flow where the output of one function feeds directly into the next. This approach abstracts implementation details and lets you concentrate on the **domain logic**—the core task of calculating totals with discounts—without worrying about low-level details.
+
+Function composition doesn’t just help you shift focus to intent—the **what**—while letting the **how** fade into the background.  By breaking workflows into modular, reusable functions, you create solutions that are easy to reason about and adapt, even as complexity grows. This approach enables your code to scale beautifully with confidence, reducing errors and fostering collaboration, so you can tackle even the most intricate systems. ✨
 
 ---
 
