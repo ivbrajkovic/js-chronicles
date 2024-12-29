@@ -107,9 +107,9 @@ _"Is this spell focused and reliable—or will it become a cursed artifact poise
 <a id="composition"></a>
 ## Building Bridges with Function Composition 🧩
 
-With pure functions in our arsenal, we’ve mastered the craft of creating reliable, self-contained tools. Like perfectly sculpted Lego bricks 🧱, they’re simple, reusable, and ready to assemble. But bricks alone don’t make a castle—it’s how you combine them that unlocks their full potential. This is the essence of **function composition**—assembling these bricks into elegant, functional systems that focus on solving domain-specific problems while abstracting away implementation details.
+With pure functions in our arsenal, we’ve mastered the craft of creating reliable, self-contained tools. Like perfectly sculpted **Lego bricks** 🧱, they’re simple, reusable, and ready to assemble. But bricks alone don’t make a castle—it’s how you combine them that unlocks their full potential. This is the essence of **function composition**—assembling these bricks into elegant, functional systems that focus on solving domain-specific problems while abstracting away implementation details.
 
-Let’s see it in action with a simple workflow for calculating a shopping cart’s total. First, we define our reusable utility functions—the building blocks of our composition:
+Let’s see it in action with a simple workflow for calculating a shopping cart’s total. First, we define our reusable **utility functions**—the building blocks of our composition:
 
 ```typescript
 type CartItem = { price: number };
