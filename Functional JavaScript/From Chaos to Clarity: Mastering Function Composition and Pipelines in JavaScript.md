@@ -14,11 +14,11 @@
 <a id="intro"></a>
 ## The Art of Clean Code 💎
 
-Ever stared at someone else’s code and thought, _“What kind of sorcery is this?”_ Instead of solving real problems, you’re lost in a labyrinth of logic—loops, conditions, and variables twisting in every direction. Welcome to a struggle all developers know too well—the eternal battle between **chaos and clarity**.
+Ever stared at someone else’s code and thought, _“What kind of sorcery is this?”_ Instead of solving real problems, you’re lost in a labyrinth of logic—loops, conditions, and variables twisting in every direction. Welcome to a struggle all developers know too well—a battle between **chaos and clarity**.
 
 >_Code should be written for humans to read, and only incidentally for machines to execute._ — [Harold Abelson](https://en.wikipedia.org/wiki/Hal_Abelson)
 
-But fear not! **Clean, readable** code isn’t some mythical treasure hidden in a developer's dungeon — it’s a craft, waiting to be mastered. Think of it as learning a powerful spell: once you have it, you’ll never go back to untangling messy loops and cryptic logic again. The key lies in focusing on writing **code that says what it does**, rather than detailing every step to do it. This is what **declarative programming** is all about: describing the _“what”_ and letting the code handle the _“how.”_
+But fear not! **Clean, readable** code isn’t some mythical treasure hidden in a developer's dungeon — it’s a craft, waiting to be mastered. The key lies in focusing on writing code that says **what it does**, rather than detailing every step to do it. This is what **declarative programming** is all about: describing the _“what”_ and letting the code handle the _“how.”_
 
 Let’s make this real with an example. Say you need to find all the even numbers in a list. Here’s how many of us started out, with the **imperative** approach:
 ```typescript
@@ -65,7 +65,7 @@ Have you ever encountered a function that tries to do everything—fetch data, p
 
 >_Simplicity is prerequisite for reliability._ — [Edsger W. Dijkstra]( https://en.wikipedia.org/wiki/Edsger_W._Dijkstra)
 
-Enter the Single Responsibility Principle—the idea that every function should do one thing well, making your code easy to read, debug, and reuse. Each function becomes a self-contained artifact of precision, ready to cast when needed. But just having a single responsibility isn’t enough. To truly master simplicity, a function needs purity—the gold standard for writing code that’s both elegant and dependable.
+Enter the **Single Responsibility Principle**—the idea that every function should do one thing well, making your code easy to read, debug, and reuse. Each function becomes a self-contained artifact of precision, ready to cast when needed. But just having a single responsibility isn’t enough. To truly master simplicity, a function needs **purity**—the gold standard for writing code that’s both elegant and dependable.
 
 ## The Potion of Purity ⚗️
 
