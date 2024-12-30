@@ -152,6 +152,56 @@ Function composition doesn’t just help you shift focus to intent—the **what*
 
 ---
 
+<a id="pipeline"></a>
+## Streamlining Code: The Power of Pipelines ✨
 
+With function composition as our solid foundation, it’s time to take abstraction to the next level—**pipelines**, the lyrical flow of logic that transforms complex operations into an elegant symphony. Pipelines build on the principles of composition, streamlining workflows into something even more intuitive. Instead of nesting functions inside one another like intricate Russian dolls 🪆, pipelines reshape logic into a clear, linear flow of transformations.
 
+>Note that there is a proposal for the [pipe operator (|>)](https://github.com/tc39/proposal-pipeline-operator) in JavaScript, which is currently at Stage 2 in the TC39 process.
+
+At its heart, a pipeline is a mechanism for chaining functions together in a way that mimics natural reasoning. Many modern JavaScript frameworks and libraries (hello, functional programming enthusiasts! 👋) offer pipeline utilities, but building your own is surprisingly simple.
+
+Let’s start with a basic implementation of a pipe function:
+```typescript
+const pipe =
+  (...fns: Function[]) =>
+  (input: any) => fns.reduce((acc, fn) => fn(acc), input);
+```
+This simple utility takes a list of functions and returns a new function. When called, it passes the input through each step in sequence, chaining transformations into a seamless flow. It’s not just a tool—it’s a **mindset**, turning complexity into clarity and workflows into poetry.
+
+Let’s refactor our previous checkout example using a pipeline:
+```typescript
+const checkout = pipe(
+  calculateTotal,
+  applyStandardDiscount,
+  roundToTwoDecimals
+);
+```
+Look at the refined `checkout` function—it’s almost poetic. Each step flows naturally into the next, forming a readable, intuitive process. This clarity isn’t just beautiful; it’s practical. It allows team members, domain experts, or even your future self to quickly understand, verify, and maintain the logic with confidence.
+
+### A Perfect Partnership with TypeScript 🤝
+
+Pipelines simplify workflows, but as projects grow, keeping them predictable and scalable becomes essential. This is where TypeScript excels. Its type system enforces compatibility across every step, reducing errors and streamlining collaboration.
+
+Here’s how you can type the `pipe` utility:
+```typescript
+function pipe<T1, R>(func: (arg1: R) => T2): (arg1: T1) => R;
+function pipe<T1, T2, R>(
+  func1: (arg1: T1) => T2,
+  func2: (arg2: T2) => R
+): (arg1: T1) => R;
+function pipe<T1, T2, T3, R>(
+  func1: (arg1: T1) => T2,
+  func2: (arg2: T2) => T3,
+  func3: (arg3: T3) => R
+): (arg1: T1) => R;
+// Extend further for more functions if needed
+
+function pipe(...funcs: Array<(input: any) => any>) {
+  return (input: any) => funcs.reduce((acc, fn) => fn(acc), input);
+}
+```
+By ensuring alignment between steps, TypeScript transforms pipelines into a robust framework for scaling and maintaining complex systems
+
+---
 
