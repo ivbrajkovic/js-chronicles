@@ -111,7 +111,7 @@ class DiscountCalculator {
 }
 ```
 
-Now, when a new customer type emerges, we add a new strategy (e.g., SorcererDiscount) without altering the DiscountCalculator class. This keeps the original codebase intact, adhering to OC’s magical promise.
+Now, when a new customer type emerges, we add a new strategy (e.g., `SorcererDiscount`) without altering the `DiscountCalculator` class. This keeps the original codebase intact, adhering to OC’s magical promise.
 
 ### Testing the Spell
 Here’s how we might use the new structure:
@@ -125,6 +125,57 @@ console.log(alchemistCalculator.calculate(100)); // Output: 85
 ```
 
 The system is now extendable. Adding a new discount type only requires creating a new strategy class—leaving the rest of the code untouched.
+
+---
+
+## Building the Enchanted Fortress: Scaling with Elegance 🏰
+
+With the foundation of the Open-Closed Principle laid, let us now fortify our enchanted bookstore. We’ll evolve our system, accommodating more complex requirements while maintaining its magical balance.
+
+### The Challenge: Expanding the Realm
+Our bookstore has grown. We now offer seasonal promotions, loyalty bonuses, and bundle discounts. Each of these requires its own calculation logic. Without a structured approach, this complexity could turn our elegant spellbook into a chaotic tome of conditions. Let’s see how OC helps us keep the magic alive.
+
+### Enhancing the Spell: Composition Over Inheritance
+Rather than relying solely on inheritance, we’ll embrace composition, which allows us to combine multiple behaviors dynamically. This design ensures our system is flexible enough to scale with new requirements.
+
+Here’s how we can extend the `DiscountCalculator` to handle multiple discounts dynamically:
+
+```typescript
+// Step 1: Create a composite strategy
+class CompositeDiscount implements DiscountStrategy {
+  private strategies: DiscountStrategy[];
+
+  constructor(...strategies: DiscountStrategy[]) {
+    this.strategies = strategies;
+  }
+
+  calculate(amount: number): number {
+    return this.strategies.reduce((currentAmount, strategy) => strategy.calculate(currentAmount), amount);
+  }
+}
+
+// Step 2: Add new discount strategies
+class SeasonalDiscount implements DiscountStrategy {
+  calculate(amount: number): number {
+    return amount * 0.8; // 20% off for seasonal sales
+  }
+}
+
+class LoyaltyDiscount implements DiscountStrategy {
+  calculate(amount: number): number {
+    return amount * 0.95; // 5% off for loyal customers
+  }
+}
+
+// Step 3: Enhance the calculator to use composite strategies
+const seasonalLoyaltyCalculator = new DiscountCalculator(
+  new CompositeDiscount(new SeasonalDiscount(), new LoyaltyDiscount())
+);
+
+console.log(seasonalLoyaltyCalculator.calculate(100)); // Output: 76 (20% off, then 5% off)
+```
+
+With this approach, new discount types—such as flash sales or limited-time promotions—can be added seamlessly by creating new strategies and combining them. The `CompositeDiscount` acts as a flexible spell that combines these effects dynamically, all without modifying the core `DiscountCalculator` class.
 
 ---
 
