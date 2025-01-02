@@ -47,6 +47,7 @@ In the next section, we’ll step into the shoes of an apprentice and craft a si
 
 ---
 
+<a id="example"></a>
 ## The Apprentice’s First Spell: A Simple Example 🪄
 
 Let us begin with a tale of two realities: one where the Open-Closed Principle is but a distant dream, and another where its magic reshapes how we design our code. Our journey starts with a simple scenario.
@@ -128,6 +129,7 @@ The system is now extendable. Adding a new discount type only requires creating 
 
 ---
 
+<a id="refactor"></a>
 ## Building the Enchanted Fortress: Scaling with Elegance 🏰
 
 With the foundation of the Open-Closed Principle laid, let us now fortify our enchanted bookstore. We’ll evolve our system, accommodating more complex requirements while maintaining its magical balance.
