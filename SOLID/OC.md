@@ -186,9 +186,9 @@ With this approach, new discount types—such as flash sales or limited-time pro
 
 In the enchanted realm of software design, the Open-Closed Principle (OCP) grants developers the power to wield change gracefully. But with great power comes great responsibility. Like a fledgling sorcerer learning to control their spells, it’s crucial to balance ambition with discipline. The principle is only as strong as the care with which it is applied.
 
-Imagine a wizard crafting a potion. The ingredients must be precise, and the steps followed with care. Too little abstraction, and the potion fizzles out; too much, and the cauldron overflows with complexity. The OCP asks us to tread the middle path—a balance between extensibility and simplicity.
+Imagine a wizard crafting a potion. The ingredients must be precise, and the steps followed with care. Too little abstraction, and the potion fizzles out; too much, and the pot overflows with complexity. The OCP asks us to tread the middle path—a balance between extensibility and simplicity.
 
-Let your abstractions flow naturally, like streams carving paths through the mountains. Use interfaces and compositions to build systems that are flexible yet grounded. Avoid the temptation to layer spells unnecessarily, for too many incantations obscure the purpose. Simplicity, though elusive, is the most potent form of magic.
+Let your abstractions flow naturally, like streams shaping paths through the mountains. Use interfaces and compositions to build systems that are flexible yet grounded. Avoid the temptation to layer spells unnecessarily, for too many incantations obscure the purpose. Simplicity, while elusive, is the most potent form of magic.
 
 ### Avoiding Common Pitfalls
 As you practice this art, beware the following traps that often ensnare even the most skilled:
