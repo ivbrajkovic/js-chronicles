@@ -183,35 +183,35 @@ Each class is independent, reusable, and easy to maintain. By following SRP, we�
 
 With the **TaskManager** refactored and its responsibilities neatly distributed, we begin to see the true magic of the Single Responsibility Principle (SRP) unfold. This isn’t just about tidier code; it’s about creating a system that feels alive—one that adapts, evolves, and grows. Let us explore the benefits that this newfound clarity brings.
 
-### 1. **Enhanced Maintainability**  
+### 1. Enhanced Maintainability
 When each class has a single, well-defined responsibility, making changes becomes a breeze.  
 - Want to modify how tasks are saved to a file? Simply update the **TaskFileSaver**, without worrying about breaking task management or server communication.  
 - Debugging becomes faster because responsibilities are isolated. Bugs are easier to trace when each class has a focused purpose.
 
 Think of it as weaving a magical tapestry—if a single thread frays, you can mend it without unraveling the entire design. 🪡
 
-### 2. **Greater Reusability**  
+### 2. Greater Reusability
 The power of focused classes lies in their independence.  
 - The **TaskServerSync** can now be reused across different projects that need server synchronization.  
 - The **TaskManager** remains a general-purpose utility for managing tasks, ready to integrate into any application.  
 
 This modularity is like crafting spells that can be reused in different adventures. Why reinvent the wheel when you already have a spellbook of reusable tools? 📜🔮
 
-### 3. **Improved Testability**  
+### 3. Improved Testability
 Unit testing becomes far simpler when responsibilities are decoupled.  
 - Testing the **TaskManager** is straightforward: you only need to check that it adds, removes, and lists tasks correctly.  
 - The **TaskFileSaver** and **TaskServerSync** can be tested independently with mock data, ensuring they perform their respective duties.  
 
 Testing each piece in isolation reduces the complexity of your test suite, making it more robust and reliable.
 
-### 4. **Easier Collaboration**  
+### 4. Easier Collaboration
 In a team setting, SRP helps avoid stepping on each other’s toes.  
 - One developer can work on enhancing the **TaskManager**, while another improves the **TaskServerSync**, and yet another optimizes the **TaskFileSaver**.  
 - With responsibilities clearly separated, the risk of conflicting changes is minimized.
 
 It’s the software equivalent of a well-organized team of wizards, each specializing in their domain. Together, they work harmoniously to achieve a shared goal. 🧙‍♀️🧙‍♂️✨
 
-### 5. **Adaptability to Change**  
+### 5. Adaptability to Change
 Change is inevitable, whether it’s a new file-saving format or an updated server API. SRP prepares your code for such evolution.  
 - By isolating concerns, you can modify one part of the system without worrying about cascading effects.  
 - Adding new functionality, like logging or additional data validation, becomes simpler because each component operates independently.
