@@ -17,14 +17,13 @@ In the vast and complex world of software development, whispers of the SOLID pri
 
 The Single Responsibility Principle beckons developers with a tantalizing promise: **simplicity**. It whispers to us, _"Each module, each class, should have only one reason to change."_ 🪄 A rule as simple as a single flame yet as profound as the stars above. When wielded wisely, it transforms complexity into elegance, creating systems that are not only functional but a joy to extend and maintain.
  
-> _“Simplicity is a great virtue but it requires hard work to achieve it and education to appreciate it. And to make matters worse: complexity sells better.”_
-> — [Edsger W. Dijkstra]( https://en.wikipedia.org/wiki/Edsger_W._Dijkstra)
+> _“Simplicity is a great virtue but it requires hard work to achieve it and education to appreciate it. And to make matters worse: complexity sells better.”_ — [Edsger W. Dijkstra]( https://en.wikipedia.org/wiki/Edsger_W._Dijkstra)
 
 But why does this principle matter? In the heart of every software system lies the tension between **power** and **maintainability**. Systems that attempt to do too much—mixing their responsibilities like a bubbling potion gone awry—inevitably collapse under the weight of their own complexity. 🧪 SRP is the antidote, offering a path toward modularity, testability, and a kind of clean, magical beauty in code.
 
 As we embark on this journey of discovery, imagine yourself a sorcerer’s apprentice in a workshop of spells and potions. 🧙‍♂️ Your tools are TypeScript, and your goal is to craft software that is not only powerful but also maintainable. Along the way, we will unravel the mysteries of SRP, one lesson at a time.
 
-The journey begins with a tale—a tale of an overburdened class. Let us venture forth. ✨
+The journey begins with a tale—a tale of an overburdened class. Let’s unravel it. ✨
 
 ---
 
@@ -86,22 +85,16 @@ With the **TaskManager**’s plight clear, we turn to the wisdom of the Single R
 
 At its heart, SRP tells us this: **A class should have only one reason to change.** In simpler terms, each class should focus on one responsibility—one clearly defined purpose. If a class is doing multiple jobs, it risks becoming a fragile, unwieldy mess.
 
-> _“Gather together the things that change for the same reasons. Separate those things that change for different reasons.”_
-> — [Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin), _Clean Architecture_
+> _“Gather together the things that change for the same reasons. Separate those things that change for different reasons.”_ — [Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin), _Clean Architecture_
 
 Imagine you are a wizard crafting spells. 🧙 Each spell has a specific intent: one to light a flame, another to summon rain, and yet another to heal wounds. If you tried to create a single “do-everything” spell, you’d risk the spell backfiring or becoming impossible to master. The same principle applies to our classes in code. **Each class should be a focused, reliable spell.**
 
 ### The Pillars of SRP  
 To fully grasp SRP, let us explore its three foundational ideas:
 
-1. **Responsibility Defines Focus**:  
-   A class should only worry about one kind of thing. For example, is the class managing tasks? Then it shouldn’t also handle saving files or communicating with servers.
-
-2. **Change Comes from Responsibility**:  
-   If a class has one reason to change, updates become simpler and safer. Need to tweak how tasks are saved? Modify the part of the code responsible for file operations—without risking task management or network logic.
-
-3. **Clear Boundaries Empower Collaboration**:  
-   With distinct responsibilities, teams can work on different parts of the system without stepping on each other’s toes. Code is easier to test, debug, and extend when boundaries are respected.
+1. **Responsibility Defines Focus**: A class should only worry about one kind of thing. For example, is the class managing tasks? Then it shouldn’t also handle saving files or communicating with servers.
+2. **Change Comes from Responsibility**: If a class has one reason to change, updates become simpler and safer. Need to tweak how tasks are saved? Modify the part of the code responsible for file operations—without risking task management or network logic.
+3. **Clear Boundaries Empower Collaboration**: With distinct responsibilities, teams can work on different parts of the system without stepping on each other’s toes. Code is easier to test, debug, and extend when boundaries are respected.
 
 ### Applying SRP to the TaskManager
 
