@@ -181,3 +181,14 @@ With this approach, new discount types—such as flash sales or limited-time pro
 
 ---
 
+<a id="benefits"></a>
+## Guardians of the Principle: Best Practices
+
+TBD
+
+---
+
+<a id="conclusion"></a>
+## The Final Illumination: Wisdom for the Journey Ahead
+
+TBD
