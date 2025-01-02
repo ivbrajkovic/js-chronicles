@@ -1,8 +1,8 @@
 # The Enchantment of Simplicity: Mastering the Single Responsibility Principle in TypeScript
 
 ## Table of Contents
-- [The Call to Responsibility: A Mysterious Principle Emerges](#intro)
-- [The Tale of the Overburdened Class](#overburdened)
+- [The Call to Responsibility: A Whisper of Simplicity](#intro)
+- [The Overburdened Class: A Curse of Complexity](#overburdened)
 - [The Wizard’s Guidance: Decoding SRP](#decoding)
 - [Breaking the Spell: Refactoring with SRP](#refactor)
 - [The Magic of Separation: Enchanting Benefits](#benefits)
@@ -11,7 +11,7 @@
 ---
 
 <a id="intro"></a>
-## 🌟 The Call to Responsibility: A Mysterious Principle Emerges
+## 🌟 The Call to Responsibility: A Whisper of Simplicity
 
 In the vast and complex world of software development, whispers of the SOLID principles echo like ancient runes, promising clarity in the chaos of tangled code. Among these guiding stars lies the **Single Responsibility Principle** (SRP), the first in the SOLID constellation, and perhaps the simplest to name yet the trickiest to truly master.
 
@@ -29,7 +29,7 @@ The journey begins with a tale—a tale of an overburdened class. Let us venture
 ---
 
 <a id="overburdened"></a>
-## ⚠️ The Tale of the Overburdened Class
+## ⚠️ The Overburdened Class: A Curse of Complexity
 
 Our story begins with a seemingly harmless TypeScript class, an eager little construct that started its life with a noble purpose. But like many heroes, it soon found itself burdened with more tasks than it could handle.
 
