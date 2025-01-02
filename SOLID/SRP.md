@@ -237,6 +237,6 @@ The journey through the Single Responsibility Principle (SRP) is not a single de
 
 Over time, you’ll find that SRP is not just a principle but a powerful ally, guiding you toward clean, maintainable code.
 
-So, dear developer, may you carry the magic of SRP with you on every project. Let your classes be focused, your code elegant, and your systems enduring. The journey of clean code is long, but with SRP as your ally, every step is worth it.
+As you venture forth, may you carry the magic of SRP with you on every project. Let your classes be focused, your code elegant, and your systems enduring. The journey of clean code is long, but with SRP as your ally, every step is worth it.
 
 And remember, as in all great adventures: the magic lies not just in the destination but in the journey itself. ✨
