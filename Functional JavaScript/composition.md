@@ -151,15 +151,16 @@ This workflow encapsulates the essence of function composition: focusing on the 
 <a id="pipeline"></a>
 ### Streamlining Code with Pipelines ✨
 
-While function composition is a powerful tool, as workflows grow in complexity, even the best compositions can become tangled. Like unpacking nested Russian dolls 🪆, deeply nested compositions can obscure intent, making the overall flow harder to grasp. **Pipelines** take abstraction further offering inear, progressive transformations that mirrors **natural reasoning**—simplifying workflows into intuitive, effortless steps
+While function composition is a powerful tool, as workflows grow in complexity, even the best compositions can become tangled. Like unpacking **Russian dolls** 🪆, deeply nested compositions can obscure intent, making the overall flow harder to grasp. Pipelines take abstraction a step further by offering linear, progressive transformations **that mirror natural reasoning**.
 
-Many modern JavaScript frameworks and libraries (hello, functional programming enthusiasts! 👋) offer pipeline utilities, but building your own is surprisingly simple. Here’s a basic implementation of a `pipe` function:
+### Building a Simple `pipe` Utility 🛠️
+Many modern JavaScript frameworks and libraries (hello, functional programming enthusiasts! 👋) offer pipeline utilities, but building your own is surprisingly simple. Let’s see how you can create one in just a few lines of code.
 ```typescript
 const pipe =
   (...fns: Function[]) =>
   (input: any) => fns.reduce((acc, fn) => fn(acc), input);
 ```
-This utility composes a list of operations into a single, linear process, ensuring input progresses seamlessly through each step. Let’s refactor our previous `checkout` example using `pipe`:
+This utility chains a list of operations into a seamless, linear process, ensuring input flows effortlessly through each step. Let’s refactor our previous `checkout` example using `pipe`:
 ```typescript
 const checkout = pipe(
   calculateTotal,
@@ -167,7 +168,7 @@ const checkout = pipe(
   roundToTwoDecimals
 );
 ```
-Look at the refined `checkout` function—it’s almost poetic. Every stage builds upon the previous one, forming a clear and intuitive progression. This coherence isn’t just beautiful; it’s practical. It allows team members, domain experts—or even your future self—to quickly understand, verify, and adapt the logic with ease.
+The refined `checkout` function feels almost poetic. Every stage builds upon the previous one, forming a clear and intuitive progression. This coherence isn’t just beautiful; it’s practical. It allows team members, domain experts—or even your future self—to quickly understand, verify, and adapt the logic with ease.
 
 #### A Perfect Partnership with TypeScript 🤝
 To ensure type safety in complex pipelines, TypeScript’s function overloads let you define strict input-output relationships across stages. Here’s how you can type a `pipe` utility using function overloads:
@@ -185,7 +186,7 @@ function pipe(...funcs: Array<(input: any) => any>) {
 ```
 
 #### A Glimpse Into the Future 🔮
-While creating your own utility offers valuable insights, JavaScript’s proposed [pipeline operator (|>)](https://github.com/tc39/proposal-pipeline-operator) will bring native support for chaining transformations, simplifying workflows further.
+While creating your own utility offers valuable insights, JavaScript’s proposed [pipeline operator (|>)](https://github.com/tc39/proposal-pipeline-operator) will make chaining transformations even simpler with native syntax.
 ```typescript
 cart 
   |> calculateTotal
@@ -356,7 +357,7 @@ Mastering function composition and pipelines isn’t just about writing better c
 
 By breaking complex problems into smaller, manageable pieces and composing them with intention, you can craft code that is not only functional but expressive and beautiful. Each function becomes a spell, designed to work harmoniously with others. The result? A codebase that is powerful, elegant, and a pleasure to maintain.
 
-#### No Need to Reinvent the Wheel 🛠️
+#### No Need to Reinvent the Wheel 🛞
 While building your own utilities sharpens your skills, libraries like [RxJS](https://rxjs.dev/), [Ramda](https://ramdajs.com/), and [lodash-fp](https://github.com/lodash/lodash/wiki/fp-guide) can supercharge your productivity. These trusted tools, supported by vibrant communities, offer robust solutions to common challenges, allowing you to focus on innovation and problem-solving.
 
 #### Takeaways to guide your practice 🗺️
