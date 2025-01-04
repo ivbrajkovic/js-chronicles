@@ -143,7 +143,9 @@ console.log(checkout(cart)); // Output: 55.18
 ```
 Here, each function has a clear purpose: summing prices, applying discounts, and formatting the result. Together, they form a logical flow where the output of one function feeds directly into the next. This structure keeps the focus on the **domain logic**—calculating totals with discounts—while abstracting away the implementation details.
 
-Function composition doesn’t just help you shift focus to intent—the **what**—while letting the **how** fade into the background. By breaking workflows into modular, reusable functions, you create solutions that are intuitive to reason about and evolve gracefully, even as complexity grows. This approach enables your code to extend seamlessly, reducing errors and fostering collaboration, so you can tackle even the most intricate systems. ✨
+Function composition help you shift focus to intent—the _what_—while letting the _how_ fade into the background. By breaking workflows into modular, reusable functions, you create solutions that are intuitive to reason about and evolve gracefully, even as complexity grows. This approach enables your code to extend seamlessly, reducing errors and fostering collaboration, so you can tackle even the most intricate systems. ✨
+
+Function composition helps shift your focus to the intent—the _what_—while allowing the _how_ to fade into the background. By breaking workflows into modular, reusable functions, you craft solutions that are intuitive to understand and evolve gracefully as complexity grows. This approach ensures your code extends seamlessly, reduces errors, and fosters collaboration, enabling you to tackle even the most intricate systems with confidence. ✨
 
 ---
 
@@ -152,7 +154,9 @@ Function composition doesn’t just help you shift focus to intent—the **what*
 
 While function composition is a powerful tool for crafting clean, reusable logic, as workflows grow more intricate, even the best compositions can become tangled. Like unpacking nested Russian dolls 🪆, navigating deeply composed functions can obscure the bigger picture.
 
-Pipelines take abstraction to the next level by embracing linear, step-by-step workflows. Think of them as a streamlined form of function composition, perfect for processes that naturally follow a sequence. By chaining functions into a smooth, logical flow, pipelines match the way we reason about tasks—making each step crystal clear and easier to follow. They truly shine when clarity and the order of operations matter most.
+While function composition is a powerful tool, as workflows grow in complexity, even the best compositions can become tangled. Like unpacking nested Russian dolls 🪆, deeply composed functions can obscure intent, making the overall flow difficult to follow.
+
+Pipelines elevate abstraction by adopting linear, step-by-step workflows. Think of them as a streamlined extension of function composition, perfectly suited for processes that follow a natural sequence. By chaining functions into a smooth, logical progression, pipelines mirror the way we reason about tasks—making each step clear and intuitive. They truly excel when clarity and the order of operations take priority.
 
 Many modern JavaScript frameworks and libraries (hello, functional programming enthusiasts! 👋) offer pipeline utilities, but building your own is surprisingly simple—and offers valuable insights into the mechanics of chaining transformations. Here’s a basic implementation of a `pipe` function:
 ```typescript
