@@ -13,14 +13,13 @@
 
 <a id="intro"></a>
 ### The Art of Clean Code 💎
-
-Have you ever stared at someone else’s code and thought, _“What kind of sorcery is this?”_ Instead of solving real problems, you’re lost in a labyrinth of loops, conditions, and variables twisting in every direction. Welcome to a struggle all developers know too well—a battle between **chaos and clarity**.
+Have you ever stared at someone else’s code and thought, _“What kind of sorcery is this?”_ Instead of solving real problems, you’re lost in a labyrinth of loops, conditions, and variables. Welcome to a struggle all developers know too well—a battle between **chaos and clarity**.
 
 >_Code should be written for humans to read, and only incidentally for machines to execute._ — [Harold Abelson](https://en.wikipedia.org/wiki/Hal_Abelson)
 
-But fear not! **Clean code** isn’t some mythical treasure buried deep in a developer’s dungeon—it’s a discipline you can master. At its heart is **declarative programming**, where you focus on the _“what”_ instead of the _“how.”_ It’s about writing code that says **what it does**, rather than detailing every step to do it.
+But fear not! **Clean code** isn’t some mythical treasure hidden in a developer’s dungeon—it’s a skill you can master. At its core is declarative programming, where you focus on _"what"_ your code does rather than _"how"_ it does it.
 
-Let’s make this real with an example. Say you need to find all the even numbers in a list. Here’s how many of us started out, with the **imperative** approach:
+Let’s make this real. Say you need to find all the even numbers in a list. The **imperative** approach might look like this:
 ```typescript
 const numbers = [1, 2, 3, 4, 5];
 const evenNumbers = [];
@@ -31,22 +30,21 @@ for (let i = 0; i < numbers.length; i++) {
 }
 console.log(evenNumbers); // Output: [2, 4]
 ```
-Sure, it works. But let’s be honest—it’s messy. There’s a lot of noise: manual loops, index tracking, and state management. It’s not obvious at a glance what the code is supposed to do.
+Sure, it works. But let’s be honest—it’s messy. There’s too much noise: manual loops, index tracking, and unnecessary state management. At a glance, it’s hard to tell what the code is actually doing. Now, let’s compare it to a **declarative** approach:
 
-Now compare it with a **declarative** approach:
+Sure, it works. But let’s face it—it’s messy. Manual loops, index tracking, and state management clutter the code, making its purpose hard to understand. Now, compare that to a **declarative** approach:
+
 ```typescript
 const numbers = [1, 2, 3, 4, 5];
 const evenNumbers = numbers.filter(num => num % 2 === 0);
 console.log(evenNumbers); // Output: [2, 4]
 ```
-One line. No loops, no clutter, just clear intent: _“Filter the even numbers.”_ The difference is like night and day. Instead of walking through the process step by step, the code declares its purpose.
+One line, no clutter—just clear intent: _“Filter the even numbers.”_ The difference is like night and day.
 
 #### Why Clean Code Matters 👨‍💻
-Clean code isn’t just about looking nice—it’s about working smarter. Imagine debugging a problem or making changes six months later. Do you want to struggle with a wall of confusing logic, or read code that practically explains itself? Clean code makes your life easier, whether you’re fixing a bug or passing your work to someone else.
+Clean code isn’t just about looking nice—it’s about working smarter. Six months down the line, would you rather struggle with a wall of confusing logic, or read code that practically explains itself? Clean code makes your life easier, whether you’re fixing a bug or passing your work to someone else.
 
-While there are times when **imperative code** is necessary—like when performance demands absolute control—most of the time, **declarative code** offers the readability and maintainability you need.
-
-Here’s a quick side-by-side comparison:
+While **imperative code** has its place—especially when performance is critical—**declarative code** often prevails with its superior readability and maintainability. Here’s a quick side-by-side comparison:
 
 | Imperative                   | Declarative                   |
 |------------------------------|-------------------------------|
@@ -59,16 +57,17 @@ Once you embrace clean, declarative code, you’ll wonder how you ever lived wit
 ---
 
 <a id="purity"></a>
-### The Magic of Pure Functions 🪄 
-
-Have you ever encountered a function that tries to do everything—fetch data, process inputs, log outputs, and maybe even brew coffee? These multitasking beasts might seem efficient, but they’re really **cursed artifacts**: brittle, convoluted, and a nightmare to maintain. Surely, there’s a better way—a more elegant spell that’s clear, straightforward, and easy to reason about.
+## The Magic of Pure Functions 🪄 
+Have you ever encountered a function that tries to do everything—fetch data, process inputs, log outputs, and maybe even brew coffee? These multitasking beasts might seem efficient, but they’re **cursed artifacts**: brittle, convoluted, and a nightmare to maintain. Surely, there’s a better way—a more elegant spell that’s clear, straightforward, and easy to reason about.
 
 >_Simplicity is prerequisite for reliability._ — [Edsger W. Dijkstra]( https://en.wikipedia.org/wiki/Edsger_W._Dijkstra)
 
-Enter the **Single Responsibility Principle**—the idea that every function should do one thing well, making your code easy to read, debug, and reuse. Each function becomes a self-contained artifact of precision, ready to cast when needed. But single responsibility alone isn’t enough. To truly master simplicity, a function needs **purity**—the gold standard for writing code that’s both elegant and dependable.
-
 #### The Essence of Purity ⚗️
-A **pure function** is like casting a perfectly crafted spell—it always yields the same result for the same input. It doesn’t create side effects or change anything outside itself, ensuring no surprises. This wizardry simplifies testing, makes debugging painless, and ensures reusability. Moreover, pure functions truly shine in concurrent and parallel programming environments. By avoiding shared state, they eliminate the risk of race conditions, providing a robust foundation for scalable workflows.
+A **pure function** is like casting a perfectly crafted spell—it always yields the same result for the same input, without side effects or surprises. This wizardry simplifies testing, eases debugging, and ensures reusability. Moreover, pure functions truly shine in concurrent and parallel programming environments. By avoiding shared state, they eliminate the risk of race conditions, providing a solid foundation for scalable workflows.
+
+A **pure function** is like casting a perfectly crafted spell—it always yields the same result for the same input, without side effects or surprises. This wizardry simplifies testing, eases debugging, and ensures reusability. Pure functions truly shine in concurrent and parallel programming environments, as avoiding shared state they eliminating race conditions.
+
+A **pure function** is like casting a perfectly crafted spell—it always yields the same result for the same input, without side effects or surprises. This wizardry simplifies testing, eases debugging, and ensures reusability. Pure functions truly shine in concurrent and parallel programming environments, as avoiding shared state eliminates race conditions.
 
 To see the difference, here’s an impure function—a rough spell:
 ```typescript
@@ -85,7 +84,7 @@ console.log(applyDiscount(100)); // Output: 98
 discount = 100;
 console.log(applyDiscount(100)); // Output: -1 🤯
 ```
-This function changes global state, making its behavior unpredictable. Like a spell gone awry, it’s unreliable and frustrating, turning debugging and reuse into a nightmare. Its output depends not just on the input `price` but also on the changing `discount` variable, which can cause hard-to-find bugs if modified elsewhere.
+This function changes global state—like a spell gone awry, it’s unreliable and frustrating, turning debugging and reuse into a tedious challenge. Its output depends not just on the input `price` but also on the changing `discount` variable, which can cause hard-to-find bugs if modified elsewhere.
 
 Now, let’s craft a pure function instead:
 ```typescript
@@ -96,10 +95,9 @@ const applyDiscount = (price: number, discountRate: number) =>
 console.log(applyDiscount(100, 0.1)); // 90
 console.log(applyDiscount(100, 0.1)); // 90
 ```
-By avoiding global state, this function becomes consistent and straightforward. Its behavior is isolated, making it a dependable building block for more complex workflows. Testing becomes a breeze too—there’s no need to prepare external state or account for potential side effects.
+Without global state, this function is predictable and self-contained. Testing is simple, and it’s ready to be reused or extended as part of larger workflows.
 
-When you break tasks into these small, magical units, you weave a codebase that’s not just robust but a pleasure to work with. So the next time you craft a function, ask yourself:
-_"Is this spell focused and reliable—or will it become a cursed artifact poised to unleash chaos?"_
+By breaking tasks into small, pure functions, you build a codebase that’s both robust and enjoyable to work with. So, the next time you write a function, ask yourself: _"Is this spell focused and reliable—or will it become a cursed artifact poised to unleash chaos?"_
 
 ---
 
