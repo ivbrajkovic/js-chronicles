@@ -215,7 +215,7 @@ At first, SRP might seem like a constraint—a rigid rule to follow. Especially 
 <a id="conclusion"></a>
 ## A Developer’s Ongoing Quest 📜
 
-The quest to master the Single Responsibility Principle isn’t a single destination but an ongoing adventure. Each time you refactor an overburdened class, you sharpen your skills and bring your code closer to the clean ideals of SOLID. Every project offers a new setting to explore, inviting you to refine your craft a little furth
+The quest to master the Single Responsibility Principle isn’t a single destination but an ongoing adventure. Each time you refactor an overburdened class, you sharpen your skills and bring your code closer to the clean ideals of SOLID. Every project offers a new setting to explore, inviting you to refine your craft a little further.
 
 ### Practical Wisdom for the Road 🔮
 - **Start Small, Win Big**: Look for classes that are trying to do too many things. Even a minor refactor can make a big difference in clarity.
