@@ -14,7 +14,7 @@
 
 <a id="intro"></a>
 ### **Introduction**  
-Ever looked at your code and thought, “Wow, this is about as organized as my sock drawer?” Well, you’re not alone. JavaScript, for all its quirks and charms, can get messy. Enter currying—a magical technique from functional programming that makes your code modular, reusable, and dare I say, elegant. If this sounds like wizardry, buckle up. We’re about to dive in.
+Ever looked at your code and thought, _“Wow, this is about as organized as my sock drawer?”_ Well, you’re not alone. JavaScript, for all its quirks and charms, can get messy. Enter currying—a magical technique from functional programming that makes your code modular, reusable, and dare I say, elegant. If this sounds like wizardry, buckle up. We’re about to dive in.
 
 ---
 
@@ -91,7 +91,7 @@ Currying might sound fancy, but it has real-world perks:
 - **Reusability**: Use existing code to create specialized function versions.  
 - **Readability**: Your code becomes self-explanatory, like a well-written novel (or at least a decent one).  
 
-Let’s take a moment to remember why readability matters. Code isn’t just written for machines—they’ll understand anything you throw at them. It’s written for humans—**your colleagues, your future self, and the next person who needs to modify it**. Good code should aim to be easy to understand, test, and modify. Currying helps achieve this by breaking logic into smaller, clear pieces that make sense at a glance.
+Let’s take a moment to remember why readability matters. Code isn’t just written for machines—they’ll understand anything you throw at them. It’s written for humans—your colleagues, your future self, and the next person who needs to modify it. Good code should aim to be easy to understand, test, and modify. Currying helps achieve this by breaking logic into smaller, clear pieces that make sense at a glance.
 
 Let’s say you’re filtering a list of objects:  
 
@@ -209,5 +209,5 @@ Curried functions lose their original `this` context. If you need to use a metho
 
 Currying is like upgrading your coding game with cheat codes. By breaking down functions into smaller, manageable pieces, you gain flexibility, readability, and a sense of accomplishment (or at least fewer debugging headaches). Whether you automate it or write it by hand, currying turns your code into a clean, modular powerhouse.  
 
-As Haskell Curry (the man behind the name) might’ve said:  
-“Write less, do more… one argument at a time!”  
+As Haskell Curry (the man behind the name) might’ve said: 
+_“Write less, do more… one argument at a time!”_  
