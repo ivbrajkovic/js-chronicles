@@ -1,6 +1,8 @@
-![A_male_mage_with_a_long_white_bear](https://github.com/user-attachments/assets/8594bbca-f4cd-4002-b154-c1235e93bd33)
+[//]: ![A_male_mage_with_a_long_white_bear](https://github.com/user-attachments/assets/d0616c30-6a6d-419a-a1af-9daac216b6e8)
 
-<img src="(https://github.com/user-attachments/assets/8594bbca-f4cd-4002-b154-c1235e93bd33" width="300" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/d0616c30-6a6d-419a-a1af-9daac216b6e8" width="612" />
+</p>
 
 # Currying: Unlocking the Modular Superpower of JavaScript
 
