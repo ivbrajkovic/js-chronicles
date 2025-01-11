@@ -210,7 +210,7 @@ With clear boundaries, teams can work on different parts of the system without s
 The modular nature of SRP makes adapting to new requirements safer and easier. Whether it’s adding new functionality, changing file formats, or switching servers, the system remains resilient and flexible.
 
 ### The True Magic of SRP 🪄
-At first, SRP might seem like a constraint—a rigid rule to follow. Especially in large-scale or agile projects. But as we’ve seen, it’s surprisingly freeing. By giving each class a single focus, teams can collaborate more smoothly, changes become easier to track, and unplanned features slot in without causing major disruption. This modularity helps modern applications—be they enterprise web apps or microservices—grow faster and with greater confidence.
+At first, SRP might feel like a constraint, especially in large-scale or agile projects. But in practice, it’s liberating. A single focus per class enables smoother collaboration, simplifies change tracking, and allows unplanned features to integrate seamlessly. This modularity empowers modern applications—whether enterprise web apps or microservices—to grow faster and with greater confidence.
 
 <a id="conclusion"></a>
 ## A Developer’s Ongoing Quest 📜
