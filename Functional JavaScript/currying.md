@@ -14,7 +14,7 @@
 
 <a id="intro"></a>
 ### **Introduction**  
-Ever looked at your code and thought, “Wow, this is about as organized as my sock drawer?” Well, you’re not alone. JavaScript, for all its quirks and charms, can get messy. Enter currying—a magical technique from functional programming that makes your code modular, reusable, and dare I say, elegant. If this sounds like wizardry, buckle up. We’re about to dive in.
+Ever looked at your code and thought, _“Wow, this is about as organized as my sock drawer?”_ Well, you’re not alone. JavaScript, for all its quirks and charms, can get messy. Enter currying—a magical technique from functional programming that makes your code modular, reusable, and dare I say, elegant. If this sounds like wizardry, buckle up. We’re about to dive in.
 
 ---
 
@@ -147,7 +147,7 @@ Here’s how it works:
 1. If the number of arguments matches the original function, it calls the function.  
 2. Otherwise, it returns a new function that waits for more arguments.  
 
-Example:
+Curry function example—adding three numbers:
 
 ```typescript
 const addThreeNumbers = (a: number, b: number, c: number) => a + b + c;
@@ -209,5 +209,4 @@ Curried functions lose their original `this` context. If you need to use a metho
 
 Currying is like upgrading your coding game with cheat codes. By breaking down functions into smaller, manageable pieces, you gain flexibility, readability, and a sense of accomplishment (or at least fewer debugging headaches). Whether you automate it or write it by hand, currying turns your code into a clean, modular powerhouse.  
 
-As Haskell Curry (the man behind the name) might’ve said:  
-“Write less, do more… one argument at a time!”  
+As Haskell Curry (the man behind the name) might’ve said: _“Write less, do more… one argument at a time!”_
