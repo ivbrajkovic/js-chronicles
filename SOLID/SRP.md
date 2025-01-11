@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/db215b41-c280-4b78-a578-f383f1f9d4b3" width="800" />
+</p>
+
 # The Magic of Single Responsibility in TypeScript
 
 ### Table of Contents
