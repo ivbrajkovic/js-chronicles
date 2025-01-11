@@ -1,6 +1,10 @@
+![A_male_mage_with_a_long_white_bear](https://github.com/user-attachments/assets/8594bbca-f4cd-4002-b154-c1235e93bd33)
+
+<img src="(https://github.com/user-attachments/assets/8594bbca-f4cd-4002-b154-c1235e93bd33" width="300" />
+
 # Currying: Unlocking the Modular Superpower of JavaScript
 
-## **Table of Contents**  
+### **Table of Contents**
 - [Introduction](#intro)  
 - [What the Heck is Currying?](#what-is-currying)  
 - [Step-by-Step Guide to Currying](#step-by-step)  
@@ -10,13 +14,9 @@
 - [A Quick Note on Pitfalls](#pitfalls)  
 - [Conclusion](#conclusion)  
 
----
-
 <a id="intro"></a>
 ## **Introduction**  
 Ever looked at your code and thought, _“Wow, this is about as organized as my sock drawer?”_ Well, you’re not alone. JavaScript, for all its quirks and charms, can get messy. Enter currying—a magical technique from functional programming that makes your code modular, reusable, and dare I say, elegant. If this sounds like wizardry, buckle up. We’re about to dive in.
-
----
 
 <a id="what-is-currying"></a>
 ## **What the Heck is Currying?**  
@@ -44,8 +44,6 @@ console.log(triple(4)); // Output: 12
 ```
 
 Boom! Now you can pass one argument at a time, like assembling a sandwich. Now that you’ve seen a simple curried function, let’s learn how to build one step by step.
-
----
 
 <a id="step-by-step"></a>
 ## **Step-by-Step Guide to Currying**  
@@ -80,8 +78,6 @@ Boom! Now you can pass one argument at a time, like assembling a sandwich. Now t
 
 4. **Profit from Flexibility**
     Now you have small, reusable steps that make your code more modular.
-
----
 
 <a id="why-currying"></a>
 ## **Why Should You Care About Currying?**  
@@ -123,8 +119,6 @@ console.log(calculateIncomeTax(200)); // Output: 236
 
 Each function does one thing, making your code easier to read, understand, and test. By creating smaller, specialized functions, currying makes complex logic simple, reusable, and maintainable for the humans who will work on it later.
 
----
-
 <a id="automating-curry"></a>
 ## **Automating Currying (Because Life is Too Short)**  
 
@@ -160,8 +154,6 @@ console.log(curriedAddThreeNumbers(1)(2, 3)); // Output: 6
 
 It’s like a vending machine for arguments: put in one at a time or all at once.
 
----
-
 <a id="typescript"></a>
 ## **TypeScript and Currying: Friends Forever**  
 
@@ -196,13 +188,9 @@ console.log(addFive(10)); // Output: 15
 
 Your IDE will guide you every step of the way.
 
----
-
 <a id="pitfalls"></a>
 ## **A Quick Note on Pitfalls**  
 Curried functions lose their original `this` context. If you need to use a method of a class with currying, use `.bind(this)` or arrow functions.
-
----
 
 <a id="conclusion"></a>
 ## **Conclusion 🧩**  
