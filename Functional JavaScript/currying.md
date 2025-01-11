@@ -1,6 +1,6 @@
 # Currying: Unlocking the Modular Superpower of JavaScript
 
-### **Table of Contents**  
+## **Table of Contents**  
 - [Introduction](#intro)  
 - [What the Heck is Currying?](#what-is-currying)  
 - [Step-by-Step Guide to Currying](#step-by-step)  
@@ -13,13 +13,13 @@
 ---
 
 <a id="intro"></a>
-### **Introduction**  
+## **Introduction**  
 Ever looked at your code and thought, _“Wow, this is about as organized as my sock drawer?”_ Well, you’re not alone. JavaScript, for all its quirks and charms, can get messy. Enter currying—a magical technique from functional programming that makes your code modular, reusable, and dare I say, elegant. If this sounds like wizardry, buckle up. We’re about to dive in.
 
 ---
 
 <a id="what-is-currying"></a>
-### **What the Heck is Currying?**  
+## **What the Heck is Currying?**  
 Currying sounds like something you'd do in the kitchen, but in JavaScript, it’s the art of transforming a function with multiple arguments into a sequence of functions, each taking a single argument. Think of it as breaking down a complicated recipe into bite-sized steps.
 
 Here’s a simple example:
@@ -48,7 +48,7 @@ Boom! Now you can pass one argument at a time, like assembling a sandwich. Now t
 ---
 
 <a id="step-by-step"></a>
-### **Step-by-Step Guide to Currying**  
+## **Step-by-Step Guide to Currying**  
 
 1. **Start with a Multi-Argument Function**
     Imagine you have a function that takes several arguments:  
@@ -84,7 +84,7 @@ Boom! Now you can pass one argument at a time, like assembling a sandwich. Now t
 ---
 
 <a id="why-currying"></a>
-### **Why Should You Care About Currying?**  
+## **Why Should You Care About Currying?**  
 Currying might sound fancy, but it has real-world perks:  
 
 - **Modularity**: Break big functions into small, testable pieces.  
@@ -126,7 +126,7 @@ Each function does one thing, making your code easier to read, understand, and t
 ---
 
 <a id="automating-curry"></a>
-### **Automating Currying (Because Life is Too Short)**  
+## **Automating Currying (Because Life is Too Short)**  
 
 Typing all those nested functions manually? No thanks. Let’s automate currying:
 
@@ -163,7 +163,7 @@ It’s like a vending machine for arguments: put in one at a time or all at once
 ---
 
 <a id="typescript"></a>
-### **TypeScript and Currying: Friends Forever**  
+## **TypeScript and Currying: Friends Forever**  
 
 Take currying to the next level with type safety in TypeScript:  
 
@@ -199,14 +199,14 @@ Your IDE will guide you every step of the way.
 ---
 
 <a id="pitfalls"></a>
-### **A Quick Note on Pitfalls**  
+## **A Quick Note on Pitfalls**  
 Curried functions lose their original `this` context. If you need to use a method of a class with currying, use `.bind(this)` or arrow functions.
 
 ---
 
 <a id="conclusion"></a>
-### **Conclusion 🧩**  
+## **Conclusion 🧩**  
 
 Currying is like upgrading your coding game with cheat codes. By breaking down functions into smaller, manageable pieces, you gain flexibility, readability, and a sense of accomplishment (or at least fewer debugging headaches). Whether you automate it or write it by hand, currying turns your code into a clean, modular powerhouse.  
 
-As Haskell Curry (the man behind the name) might’ve said: _“Write less, do more… one argument at a time!”_
+As Haskell Curry (the man behind the name) might’ve said: _“Write less, do more… one argument at a time!”
