@@ -1,6 +1,10 @@
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/84dbca82-0fbe-4e6f-9512-7c5d811dd6c3" width="800" />
+</p>
+
 # The Spellbook of Scalable Design: The Open-Closed Principle in Action
 
-## Table of Contents
+### Table of Contents
 - [Introduction: A Doorway to Open-Closed Enchantment](#intro)
 - [The Heart of the Open-Closed Principle](#core)
 - [The Apprentice’s First Spell: A Simple Example](#example)
@@ -18,8 +22,6 @@ In the grand tapestry of software design, there exists a constellation of guidin
 Imagine your codebase as a magical castle. 🏰 The OCP ensures you can add new towers and wings without disrupting the existing walls. It safeguards the integrity of your creation, welcoming change while banishing the chaos of unintended consequences.
 
 Prepare your wands—or rather, your favorite IDE—and prepare to unlock the mysteries of code that grows without breaking. 🪄💻
-
----
 
 <a id="core"></a>
 ## The Heart of the Open-Closed Principle 🌟
@@ -40,8 +42,6 @@ TypeScript equips us with tools to wield the OCP effectively:
 - **Generics** allow reusable and flexible structures.
 
 Through these tools, OCP becomes a practical approach to design, fostering systems that evolve gracefully while preserving stability. Now, let’s see what happens when this principle is ignored—and how applying its magic can illuminate a better path. 👣🕯️
-
----
 
 <a id="example"></a>
 ## The Apprentice’s First Spell: A Simple Example 🪄
@@ -127,8 +127,6 @@ console.log(alchemistCalculator.calculate(100)); // Output: 85
 
 This approach not only adheres to OCP but also ensures our code remains adaptable and future-proof. Adding a new discount type is now as simple as creating a new strategy class, leaving the rest of the system untouched.
 
----
-
 <a id="refactor"></a>
 ## Building the Enchanted Fortress: Scaling with Elegance 🏰
 
@@ -176,8 +174,6 @@ console.log(seasonalLoyaltyCalculator.calculate(100)); // Output: 76 (20% off, t
 
 With this approach, introducing new discount types—such as flash sales or limited-time promotions—becomes effortless. You simply craft a new strategy and combine it with existing ones using the CompositeDiscount. This flexible design ensures the core DiscountCalculator class remains untouched, keeping the system scalable.
 
----
-
 <a id="benefits"></a>
 ## Guardians of the Principle: Best Practices 🛡️
 
@@ -194,8 +190,6 @@ As you practice this art, beware the following traps:
 4. **Neglecting Documentation**: Even the most elegant spellbook becomes indecipherable without annotations. Clear documentation ensures that the system’s magic remains accessible to all.
 
 With these lessons in mind, your system will remain a marvel of stability and adaptability, capable of growing without unraveling. 
-
----
 
 <a id="conclusion"></a>
 ## The Final Illumination: Wisdom for the Journey Ahead 🔮
