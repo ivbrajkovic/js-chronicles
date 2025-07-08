@@ -2,7 +2,6 @@
 
 ![Project Status](https://img.shields.io/badge/status-active-brightgreen)
 ![Last Updated](https://img.shields.io/github/last-commit/ivbrajkovic/js-chronicles)
-![Tech Stack](https://img.shields.io/badge/tech-JavaScript%2FTypeScript-blue)
 ![Docs Complete](https://img.shields.io/badge/docs-complete-success)
 
 Welcome to **JS Chronicles** — a curated collection of in-depth articles, tutorials, and insights on JavaScript, TypeScript, and essential programming principles. This repository is designed to help developers of all levels deepen their understanding of modern JavaScript/TypeScript, software architecture, and best practices.
