@@ -7,8 +7,6 @@
 
 Welcome to **JS Chronicles** — a curated collection of in-depth articles, tutorials, and insights on JavaScript, TypeScript, and essential programming principles. This repository is designed to help developers of all levels deepen their understanding of modern JavaScript/TypeScript, software architecture, and best practices.
 
----
-
 ## Table of Contents
 
 - [Overview](#overview)
@@ -19,8 +17,6 @@ Welcome to **JS Chronicles** — a curated collection of in-depth articles, tuto
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
-
----
 
 ## Overview
 
@@ -34,8 +30,6 @@ JS Chronicles serves as a knowledge hub for developers interested in:
 
 Whether you're a beginner or an experienced developer, you'll find valuable resources to enhance your skills and stay up-to-date with modern development techniques.
 
----
-
 ## Articles
 
 ### Functional JavaScript
@@ -48,12 +42,10 @@ Whether you're a beginner or an experienced developer, you'll find valuable reso
 
 ### SOLID Principles
 
-| Article                                                                         | Description                                                                               | Key Topics                               | Level        |
-| ------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ---------------------------------------- | ------------ |
-| [Single Responsibility Principle](SOLID/Single%20Responsibility%20Principle.md) | Discusses the SRP, why it matters, and how to apply it in JavaScript/TypeScript projects. | SOLID, SRP, maintainability, refactoring | Intermediate |
-| [Open-Closed Principle](SOLID/Open-Closed%20Principle.md)                       | Explores the OCP, with examples and strategies for extensible code.                       | SOLID, OCP, extensibility, abstraction   | Intermediate |
-
----
+| Article                                                                                      | Description                                                                               | Key Topics                               | Level        |
+| -------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ---------------------------------------- | ------------ |
+| [Single Responsibility Principle](SOLID%20Principles/Single%20Responsibility%20Principle.md) | Discusses the SRP, why it matters, and how to apply it in JavaScript/TypeScript projects. | SOLID, SRP, maintainability, refactoring | Intermediate |
+| [Open-Closed Principle](SOLID%20Principles/Open-Closed%20Principle.md)                       | Explores the OCP, with examples and strategies for extensible code.                       | SOLID, OCP, extensibility, abstraction   | Intermediate |
 
 ## How to Use
 
@@ -67,8 +59,6 @@ Whether you're a beginner or an experienced developer, you'll find valuable reso
 3. **Stay updated:**
    - Watch or star the repository for updates and new articles.
 
----
-
 ## Contributing
 
 Contributions are welcome! To add your own articles or suggest improvements:
@@ -80,13 +70,9 @@ Contributions are welcome! To add your own articles or suggest improvements:
 
 Please follow the existing style and structure for consistency.
 
----
-
 ## License
 
 This project is licensed under the [MIT License](LICENSE.md).
-
----
 
 ## Contact
 
