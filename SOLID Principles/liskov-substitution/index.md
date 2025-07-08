@@ -2,7 +2,7 @@
   <img src="./asset/An Open Book Sitting On Top Of A Pile Of Rocks.png" width="800" />
 </p>
 
-# The Constellation of Substitution: The Liskov Substitution Principle in TypeScript
+# The Constellation of Substitution: The Liskov Substitution Principle ✨
 
 ### Table of Contents
 
@@ -17,7 +17,7 @@
 
 <a id="intro"></a>
 
-## A Journey into the Realm of SOLID Constellations
+## A Journey into the Realm of SOLID Constellations 🌌
 
 In the vast cosmos of software design, the **SOLID principles** shine like constellations—each star a guiding light toward elegant and maintainable systems. Among them, the **Liskov Substitution Principle** (LSP) burns brightly, illuminating the path to harmony and adaptability in code.
 
@@ -33,7 +33,7 @@ Together, we’ll uncover the secrets of LSP and its practical applications in T
 
 <a id="explanation"></a>
 
-## Understanding the Liskov Substitution Principle
+## Understanding the Liskov Substitution Principle 🧩
 
 The idea behind LSP is that **subtypes must be substitutable for their base types without altering the correctness of the program**. When you create a subclass, you’re making a promise: _"I will honor the intent and behavior of the parent class."_ If this promise is broken—if the subclass introduces unexpected behavior—the system begins to unravel.
 
@@ -56,7 +56,7 @@ By following these tenets, we craft systems that adapt gracefully, where subclas
 
 <a id="shapes"></a>
 
-### The Power of Substitutability: Shapes in TypeScript
+### The Power of Substitutability: Shapes in TypeScript 🔷
 
 To understand the practical implications of LSP, let’s examine a classic example involving shapes. While the initial design may seem logical, subtle violations of LSP can emerge, leading to unexpected problems in the system.
 
@@ -151,7 +151,7 @@ By decoupling Square and Rectangle, we align both with the expectations of the S
 
 <a id="benefits"></a>
 
-## Benefits of LSP: Enchanting Harmony in Practice
+## Benefits of LSP: Enchanting Harmony in Practice 🎶
 
 Having realigned our shapes and restored order to the magical library of our code, let’s pause and consider the gifts the Liskov Substitution Principle brings—both enchanting and entirely practical.
 
@@ -175,7 +175,7 @@ When you design to LSP, your abstractions remain trustworthy. Developers can bui
 
 <a id="test"></a>
 
-## A Quick Test: Walking in the Parent’s Shoes
+## A Quick Test: Walking in the Parent’s Shoes 👟
 
 Let’s return to our shapes and see how easily new subclasses fit in—without risk of violating expectations:
 
@@ -208,13 +208,13 @@ No matter which shape we send into `printArea`, the code works as expected. Each
 
 <a id="conclusion"></a>
 
-## Conclusion: Carrying the Light of Substitution Forward
+## Conclusion: Carrying the Light of Substitution Forward 🚀
 
 As our magical journey through the Liskov Substitution Principle comes to an end, let’s step back and appreciate the new constellation we’ve traced in our sky. With LSP guiding our designs, we transform fragile systems into harmonious, evolving universes—where every subclass is a trusted star, shining in alignment with its parent.
 
 The heart of LSP is a simple, profound truth: **When a subclass can stand in for its base class without causing confusion or chaos, our code becomes infinitely more resilient and joyful to work with.**
 
-### Reflections for the Developer’s Quest
+### Reflections for the Developer’s Quest 🧭
 
 - **Let expectations be your compass:** Always ask—can this subclass truly substitute for its parent, everywhere it’s used?
 - **Trust in abstraction:** Use TypeScript’s types, interfaces, and abstract classes to enforce the right contracts.
