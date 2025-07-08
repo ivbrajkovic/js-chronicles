@@ -56,13 +56,13 @@ By following these tenets, we craft systems that adapt gracefully, where subclas
 
 <a id="shapes"></a>
 
-### The Power of Substitutability: Shapes in TypeScript 🔷
+### The Power of Substitutability: Typescript Shapes🔷
 
 To understand the practical implications of LSP, let’s examine a classic example involving shapes. While the initial design may seem logical, subtle violations of LSP can emerge, leading to unexpected problems in the system.
 
-#### The Setup: A Simple Shape Hierarchy
+#### The Setup: A Simple Shape Hierarchy 🛠️
 
-Imagine a system designed to calculate the area of different shapes, starting with a base class Shape and a subclass Rectangle.
+Imagine a system designed to calculate the area of different shapes, starting with a base class `Shape` and a subclass `Rectangle`.
 
 ```typescript
 class Shape {
@@ -81,7 +81,7 @@ class Rectangle extends Shape {
 }
 ```
 
-So far, everything seems logical. Rectangle inherits from Shape and implements the area() method as expected. Now, let’s introduce another subclass: Square.
+So far, everything seems logical. `Rectangle` inherits from Shape and implements the `area()` method as expected. Now, let’s introduce another subclass: `Square`.
 
 ```typescript
 class Square extends Rectangle {
@@ -91,9 +91,9 @@ class Square extends Rectangle {
 }
 ```
 
-The Square class seems to fit naturally into the hierarchy since a square is a specific type of rectangle. However, this decision subtly violates the LSP.
+The `Square` class seems to fit naturally into the hierarchy since a square is a specific type of rectangle. However, this decision subtly violates the LSP.
 
-#### Identifying the Violation
+#### Identifying the Violation ⚠️
 
 Consider a function that resizes a rectangle and logs its area:
 
@@ -105,7 +105,7 @@ function resizeAndLogArea(rectangle: Rectangle): void {
 }
 ```
 
-What happens when we pass a Square instance to this function?
+What happens when we pass a `Square` instance to this function?
 
 ```typescript
 const square = new Square(5);
@@ -113,13 +113,13 @@ resizeAndLogArea(square);
 // A square cannot have different width and height—violating expectations.
 ```
 
-The issue is clear: **a square cannot logically support the behavior expected of a rectangle**. While Square inherits from Rectangle, it breaks substitutability because it violates the assumptions about width and height.
+The issue is clear: **a square cannot logically support the behavior expected of a rectangle**. While `Square` inherits from `Rectangle`, it breaks substitutability because it violates the assumptions about width and height.
 
 ---
 
-#### Refactoring to Restore Harmony
+#### Refactoring to Restore Harmony ☯
 
-The problem lies in forcing Square to inherit behavior from Rectangle that it cannot logically support. To resolve this issue, we need a design that aligns better with the shared behaviors of shapes. Instead of forcing Square to inherit from Rectangle, we introduce a more suitable abstraction.
+The problem lies in forcing `Square` to inherit behavior from `Rectangle` that it cannot logically support. To resolve this issue, we need a design that aligns better with the shared behaviors of shapes. Instead of forcing `Square` to inherit from `Rectangle`, we introduce a more suitable abstraction.
 
 ```typescript
 abstract class Shape {
@@ -145,7 +145,7 @@ class Square extends Shape {
 }
 ```
 
-By decoupling Square and Rectangle, we align both with the expectations of the Shape base class, resolving the immediate issue while creating a robust, adaptable design that adheres to LSP.
+By decoupling `Square` and `Rectangle`, we align both with the expectations of the `Shape` base class, resolving the immediate issue while creating a robust, adaptable design that adheres to LSP.
 
 ---
 
@@ -208,9 +208,9 @@ No matter which shape we send into `printArea`, the code works as expected. Each
 
 <a id="conclusion"></a>
 
-## Conclusion: Carrying the Light of Substitution Forward 🚀
+## Carrying the Light of Substitution Forward 🚀
 
-As our magical journey through the Liskov Substitution Principle comes to an end, let’s step back and appreciate the new constellation we’ve traced in our sky. With LSP guiding our designs, we transform fragile systems into harmonious, evolving universes—where every subclass is a trusted star, shining in alignment with its parent.
+As our magical journey through the LSP comes to an end, let’s step back and appreciate the new constellation we’ve traced in our sky. With LSP guiding our designs, we transform fragile systems into harmonious, evolving universes—where every subclass is a trusted star, shining in alignment with its parent.
 
 The heart of LSP is a simple, profound truth: **When a subclass can stand in for its base class without causing confusion or chaos, our code becomes infinitely more resilient and joyful to work with.**
 
@@ -222,5 +222,3 @@ The heart of LSP is a simple, profound truth: **When a subclass can stand in for
 - **Teach by example:** As your systems grow, guide new contributors to honor this principle. Let harmony be a shared practice, not a secret spell.
 
 In a world where change is the only constant, LSP is both a shield and a beacon. With it, your TypeScript creations are free to evolve, expand, and delight—all while remaining coherent and dependable. So continue your journey, one careful abstraction at a time, and let the code you write illuminate your path and inspire those who follow.
-
-May the stars of SOLID guide you, and may every class you craft shine with integrity. ✨
