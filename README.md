@@ -45,7 +45,7 @@ Whether you're a beginner or an experienced developer, you'll find valuable reso
 | ---------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ---------------------------------------- | ------------ |
 | [Single Responsibility](SOLID%20Principles/Single%20Responsibility%20Principle.md) | Discusses the SRP, why it matters, and how to apply it in JavaScript/TypeScript projects. | SOLID, SRP, maintainability, refactoring | Intermediate |
 | [Open-Closed](SOLID%20Principles/Open-Closed%20Principle.md)                       | Explores the OCP, with examples and strategies for extensible code.                       | SOLID, OCP, extensibility, abstraction   | Intermediate |
-| [Liskov Substitution](SOLID%20Principles/liskov-substitution/index.md)             | Explores the OCP, with examples and strategies for extensible code.                       | SOLID, OCP, extensibility, abstraction   | Intermediate |
+| [Liskov Substitution](SOLID%20Principles/Liskov%20Substitution%20Principle.md)     | Explains the LSP, its importance in object-oriented design, and practical examples.       | SOLID, LSP, inheritance, polymorphism    | Intermediate |
 
 ## How to Use
 
