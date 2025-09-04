@@ -33,19 +33,20 @@ Whether you're a beginner or an experienced developer, you'll find valuable reso
 
 ### Functional JavaScript
 
-| Article                                               | Description                                                                              | Key Topics                                         | Level        |
-| ----------------------------------------------------- | ---------------------------------------------------------------------------------------- | -------------------------------------------------- | ------------ |
-| [Closures](Functional%20JavaScript/closures.md)       | Explains closures in JavaScript, how they work, and practical use cases.                 | Closures, scope, memory, callbacks                 | Beginner     |
-| [Composition](Functional%20JavaScript/composition.md) | An introduction to function composition and its role in building modular, reusable code. | Composition, higher-order functions, modularity    | Intermediate |
-| [Currying](Functional%20JavaScript/currying.md)       | Covers the concept of currying, its benefits, and implementation in JavaScript.          | Currying, partial application, functional patterns | Intermediate |
+| Article                                             | Description                                                                              | Key Topics                                         | Level        |
+| --------------------------------------------------- | ---------------------------------------------------------------------------------------- | -------------------------------------------------- | ------------ |
+| [Closures](functional-javascript/closures.md)       | Explains closures in JavaScript, how they work, and practical use cases.                 | Closures, scope, memory, callbacks                 | Beginner     |
+| [Composition](functional-javascript/composition.md) | An introduction to function composition and its role in building modular, reusable code. | Composition, higher-order functions, modularity    | Intermediate |
+| [Currying](functional-javascript/currying.md)       | Covers the concept of currying, its benefits, and implementation in JavaScript.          | Currying, partial application, functional patterns | Intermediate |
 
 ### SOLID Principles
 
-| Article                                                                            | Description                                                                               | Key Topics                               | Level        |
-| ---------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ---------------------------------------- | ------------ |
-| [Single Responsibility](SOLID%20Principles/Single%20Responsibility%20Principle.md) | Discusses the SRP, why it matters, and how to apply it in JavaScript/TypeScript projects. | SOLID, SRP, maintainability, refactoring | Intermediate |
-| [Open-Closed](SOLID%20Principles/Open-Closed%20Principle.md)                       | Explores the OCP, with examples and strategies for extensible code.                       | SOLID, OCP, extensibility, abstraction   | Intermediate |
-| [Liskov Substitution](SOLID%20Principles/Liskov%20Substitution%20Principle.md)     | Explains the LSP, its importance in object-oriented design, and practical examples.       | SOLID, LSP, inheritance, polymorphism    | Intermediate |
+| Article                                                                                  | Description                                                                               | Key Topics                               | Level        |
+| ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ---------------------------------------- | ------------ |
+| [Single Responsibility](solid-principles/single-responsability/single-responsability.md) | Discusses the SRP, why it matters, and how to apply it in JavaScript/TypeScript projects. | SOLID, SRP, maintainability, refactoring | Intermediate |
+| [Open-Closed](solid-principles/open-closed/open-closed.md)                               | Explores the OCP, with examples and strategies for extensible code.                       | SOLID, OCP, extensibility, abstraction   | Intermediate |
+| [Liskov Substitution](solid-principles/liskov-substitution/liskov-substitution.md)       | Explains the LSP, its importance in object-oriented design, and practical examples.       | SOLID, LSP, inheritance, polymorphism    | Intermediate |
+| [Interface Segregation](solid-principles/interface-segregation/interface-segregation.md) | Covers the ISP, its benefits, and how to implement it in TypeScript interfaces.           | SOLID, ISP, interfaces, decoupling       | Intermediate |
 
 ## How to Use
 
