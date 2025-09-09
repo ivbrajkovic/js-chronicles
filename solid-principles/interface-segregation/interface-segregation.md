@@ -1,17 +1,20 @@
 <p align="center">
   <img src="./asset/Plain Black Paperback Book Lying On Archaic Tablet.png" width="800" />
+    <p align="center" style="font-size: 0.8em; color: gray; margin-top: -10px;">
+    Artwork created using CGDream
+  </p>
 </p>
 
-# The Scroll of Many Runes: The Interface Segregation Principle ✨
+# The Scroll of Whispered Runes: The Interface Segregation Principle
 
-##### In the realm of code, burdened tomes sow chaos. Give each class only the scroll it was meant to wield, and escape the curse of bloated interfaces.
+##### Bloated interfaces force classes to carry methods they’ll never use. Trade the overweight grimoire for lean scrolls — let every class wield only the runes it was born to cast.
 
 ### Table of Contents
 
 - [A Whisper of Precision](#intro)
 - [The Curse of the Overburdened Tome](#problem)
 - [The Wisdom of Segregated Scrolls](#principle)
-- [The Scribe’s Remedy of Lean Design](#refactor)
+- [The Scribe’s Remedy—A Candle-Lit Refactor](#refactor)
 - [Harmony Restored with the Wisdom of ISP](#benefits)
 - [The Developer’s Quest for Lean Design](#conclusion)
 
@@ -21,13 +24,12 @@
 
 ## A Whisper of Precision 🪶
 
-Within the constellation of **SOLID principles** there lies a star of quiet wisdom—the **Interface Segregation Principle (ISP)**, a gentle guide that whispers of clarity and graceful design.
+Among the five stars of **SOLID** constellation, the **Interface Segregation Principle (ISP)** glimmers with quiet power. It murmurs a single, uncompromising truth: _“The smaller the interface, the better.”_
 
-> _“Clients should not be forced to depend upon interfaces that they do not use.”_ — [Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin)
+> _“Clients should not be forced to depend upon interfaces that they do not use.”_
+> — [Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin)
 
-Ignoring this wisdom leads to systems bound by **large interfaces** that try to cover every possible role. It may seem convenient at first, but it forces classes to bear methods they will never use.
-
-Imagine a master scribe chained to a tome containing every rune ever etched—_healing charms_, _dwarven forges_, _alchemists' brews_. To inscribe a single charm, he must bear the weight of all. Then the sage of ISP spoke: _"Give the scribe only the scroll he needs."_
+_Ignore the whisper_, and classes stagger beneath the weight of irrelevant runes—healing charms mixed with dwarven forge songs, alchemist brews tangled in druidic chants. _Heed the whisper_, and every creature carries only the scrolls it can truly wield.
 
 ---
 
@@ -35,10 +37,9 @@ Imagine a master scribe chained to a tome containing every rune ever etched—_h
 
 ## The Curse of the Overburdened Tome 📜
 
-Our tale begins with a single scroll, ambitiously crafted to bind all magical beings—_wizards_, _forgers_, and _druids_. But each was condemned to bear the whole tome, even when only one rune was needed.
+Once upon a refactor, in a kingdom _impatient for speed_, a single unbreakable scroll aspired to bind every magical being.
 
 ```typescript
-// A bloated interface trying to serve all magical beings
 interface ICreature {
   castSpell(): void;
   forgeWeapon(): void;
@@ -46,39 +47,39 @@ interface ICreature {
 }
 ```
 
-When an `ElvenMage` tries to cast a spell, she is burdened with methods for forging weapons and brewing potions that are irrelevant to her craft.
+The `ElvenMage`, graceful beneath moonlit spires, was forced to reject anvil and cauldron, her slender fingers trembling at the touch of alien runes.
 
 ```typescript
 class ElvenMage implements ICreature {
-  castSpell(): void {
-    console.log('✨ Casting arcane fireball...');
+  castSpell() {
+    console.log('✨ Arcane fireball!');
   }
-  forgeWeapon(): void {
-    throw new Error('Elves do not forge weapons! ❌');
+  forgeWeapon() {
+    throw new Error('Elves do not forge!');
   }
-  brewPotion(): void {
-    throw new Error('Only druids brew potions! ❌');
+  brewPotion() {
+    throw new Error('Elves do not brew!');
   }
 }
 ```
 
-Meanwhile, when a `DwarvenBlacksmith` forges a weapon, he is weighed down by spells and potions he was never meant to wield.
+Meanwhile, the `DwarvenBlacksmith`, soot-covered and proud, had to wave away wand and vial, calloused hands recoiling from foreign incantations.
 
 ```typescript
 class DwarvenBlacksmith implements ICreature {
-  forgeWeapon(): void {
-    console.log('⚒️ Forging a dwarven axe...');
+  forgeWeapon() {
+    console.log('⚒️ Dwarven axe ready!');
   }
-  castSpell(): void {
-    throw new Error('Dwarves do not cast spells! ❌');
+  castSpell() {
+    throw new Error('Dwarves do not cast!');
   }
-  brewPotion(): void {
-    throw new Error('Potions are no concern of dwarves! ❌');
+  brewPotion() {
+    throw new Error('Dwarves do not brew!');
   }
 }
 ```
 
-The `ElvenMage` and `DwarvenBlacksmith` are forced to wield runes they were never meant to master. Burdened by unused powers, they bring confusion and fragility to the realm of code. Each change to `ICreature` unleashes a ripple of chaos. This is _the curse of the bloated interface_.
+Every new disciple of `ICreature`—be it _sprite_, _golem_, or _dragon_—was shackled to the same bloated tome. A single errant quill-stroke anywhere in the manuscript rippled outward, breeding shards of fragility. Thus the curse: _the heavier the grimoire, the louder the crash when it falls._
 
 ---
 
@@ -86,150 +87,122 @@ The `ElvenMage` and `DwarvenBlacksmith` are forced to wield runes they were neve
 
 ## The Wisdom of Segregated Scrolls 🔮
 
-To lift the curse, ISP brings a clear remedy. Rather than binding every rune into one _heavy tome_, it guides us to inscribe many smaller, _focused scrolls_. Each scroll carries only what is needed for a **single purpose**.
+ISP teaches us to cleave the colossal grimoire into lean scrolls, each inscribed with but **one honest rune**—the moment the parchment is slit, the ink itself sighs, and the world rearranges _before the candle flickers_.
 
-> _"The dependency of a module on another should be based on the smallest possible interface."_ — a common interpretation of this principle’s wisdom.
+| Before ISP (Bloated Tome) ❌ | After ISP (Focused Scrolls) ✅ |
+| ---------------------------- | ------------------------------ |
+| One giant interface          | Many small, role-based ones    |
+| Classes littered with stubs  | Classes implement only truth   |
+| Changes cascade              | Changes stay local             |
+| Runtime errors await         | Compile-time safety reigns     |
 
-At its core, ISP is about **clarity of contract**. A class should depend only on what serves its craft, _nothing more_. By doing so, we reduce unnecessary coupling and protect the system from _cascading side effects_.
+## The Scribe’s Remedy—A Candle-Lit Refactor 🕯️
 
-### The Pillars of ISP 🏛️
+Night settles over the scriptorium. Moths dance around a single candle while the master-scribe unfurls the offending parchment. Quill in hand, he begins the **ritual of segregation**—_each stroke a small liberation_.
 
-To wield this principle with clarity, remember these guiding runes:
+### Step 1—Unbind the Roles
 
-1. **One Rune, One Role**—each interface should serve a single purpose, as a scroll carries but one spell. Simplicity guards against confusion.
-2. **No Empty Promises**—a class should never claim powers it cannot wield. False contracts weaken both trust and design.
-3. **Clients Choose Their Scrolls**—take only the roles you need, as a mage takes only the charm fit for the spell. True freedom lies in precision.
-4. **Combine, Don’t Inflate**—when many abilities are needed, weave scrolls together. Unity through composition is stronger than a bloated tome.
-
-### The Overburdened Tome vs. The Focused Scrolls ⚖️
-
-Behold the contrast between the cursed tome and the enlightened scrolls:
-
-| Before ISP (The Bloated Tome) ❌            | After ISP (Focused Scrolls) ✅         |
-| ------------------------------------------- | -------------------------------------- |
-| One giant, unwieldy interface.              | Small, role-specific interfaces.       |
-| Clients must implement unused methods.      | Clients only implement what they need. |
-| Changes ripple across unrelated clients.    | Interfaces are stable and decoupled.   |
-| Code is polluted with error-throwing stubs. | Contracts are honest and purposeful.   |
-
----
-
-<a id="refactor"></a>
-
-## The Scribe’s Remedy of Lean Design ✍️
-
-To restore balance, we must craft our interfaces with care, ensuring that each class only bears the scrolls it truly needs. Let us rewrite our magical beings with the wisdom of ISP.
-
-### Step 1: Unbind the Overburdened Tome 🔍
-
-First, we identify the _distinct roles_ currently trapped within `ICreature` and segregate them into their own interfaces.
+With a gentle slice, the bloated contract falls into three slender scrolls.
 
 ```typescript
 interface ISpellCaster {
   castSpell(): void;
 }
-
 interface IWeaponForger {
   forgeWeapon(): void;
 }
-
 interface IPotionBrewer {
   brewPotion(): void;
 }
 ```
 
-### Step 2: Forge Focused Roles 🧙‍♂️
+The ink glows—runes now sing, no longer shout.
 
-With the new scrolls in hand, each class now implements only the methods true to its nature. By splitting the contract, the unnecessary weight is gone—_no false promises_, _no irrelevant powers_. Each being now acts with clarity.
+### Step 2—Grant Only the Scrolls That Fit
+
+The `ElvenMage` returns, robes whispering, and claims but one scroll:
 
 ```typescript
 class ElvenMage implements ISpellCaster {
-  castSpell(): void {
-    console.log('✨ Casting arcane fireball...');
-  }
-}
-
-class DwarvenBlacksmith implements IWeaponForger {
-  forgeWeapon(): void {
-    console.log('⚒️ Forging a dwarven axe...');
-  }
-}
-
-class ForestDruid implements IPotionBrewer {
-  brewPotion(): void {
-    console.log('⚗️ Brewing a healing potion...');
+  castSpell() {
+    console.log('✨ Arcane fireball!');
   }
 }
 ```
 
-Now, each class implements only the interfaces true to its nature. The `ElvenMage` casts spells unburdened, the `DwarvenBlacksmith` forges freely, and the `ForestDruid` brews potions without distraction.
-
-### Step 3: Weave Scrolls for Complex Beings 🧩
-
-Some beings in our magical realm possess more than one talent. ISP shines here not by inflating a single scroll, but by weaving multiple focused scrolls together—_each one defining a distinct ability_.
+In the forge across town, the `DwarvenBlacksmith` wipes soot from his brow and lifts his own single parchment:
 
 ```typescript
-class DwarvenWarrior implements IWeaponForger, ISpellCaster {
-  forgeWeapon(): void {
-    console.log('⚒️ Forging a battle axe...');
-  }
-  castSpell(): void {
-    console.log('✨ Unleashing a dwarven battle rune...');
+class DwarvenBlacksmith implements IWeaponForger {
+  forgeWeapon() {
+    console.log('⚒️ Dwarven axe ready!');
   }
 }
 ```
 
-### Step 4: Grant Clients Only What They Need 🤝
+No `Error` escapes their lips—their ink is _truthful_.
 
-Those who summon spells need not know of forges or potions. A client depends only on the `ISpellCaster` contract, never on burdens beyond its purpose.
+<p align="center">
+  <img src="./asset/Two Photographs Of A Woman And A Man With Long Hai.png" width="800" />
+  <p align="center" style="font-size: 0.8em; color: gray; margin-top: -10px;">
+    Artwork created using CGDream
+  </p>
+</p>
+
+### Step 3—Weave Scrolls Together for Complex Heroes
+
+A gust of wind; moon-moths scatter. The `DwarvenRunesmith` enters, rune-hammer slung across his back. He bears two scrolls, yet the candle does not flicker—**many contracts are welcome when every one is slender**.
+
+```typescript
+class DwarvenRunesmith implements IWeaponForger, ISpellCaster {
+  forgeWeapon() {
+    console.log('⚒️ Rune-etched hammer!');
+  }
+  castSpell() {
+    console.log('✨ Rune of fire!');
+  }
+}
+```
+
+### Step 4—Let Clients Depend Only on What They Need
+
+The scribe lifts a final parchment—**the client invocation**—and breathes a spell of _type safety_. Thus no call is made that should not be.
 
 ```typescript
 function summonSpell(caster: ISpellCaster) {
   caster.castSpell();
 }
-
-const mage = new ElvenMage();
-const warrior = new DwarvenWarrior();
-
-summonSpell(mage); // ✨ Casting arcane fireball...
-summonSpell(warrior); // ✨ Unleashing a dwarven battle rune...
+summonSpell(new ElvenMage()); // ✔️
+summonSpell(new DwarvenRunesmith()); // ✔️
+// summonSpell(new ForestDruid()); // ❌ Compile-time guardian intervenes
 ```
 
----
+The candle steadies; the moth settles. _Fragility banished_, harmony restored.
 
-<a id="benefits"></a>
+## Harmony Restored — Gifts of ISP 🌟
 
-## Harmony Restored with the Wisdom of ISP 🌟
+The scrolls now rest on their rightful shelves, behold the gifts that follow.
 
-With the tome divided, our system shines again. The benefits of this newfound clarity are manifold:
+1. **Cohesion & Decoupling**
+   Each class knows its craft; dependencies shrink, coupling loosens.
+2. **Readability & Maintainability**
+   A glance at the `implements` clause tells a **complete**, **truthful story**.
+3. **Fearless Refactoring**
+   Add `IHealer` or `ITeleporter` tomorrow—no existing scroll is torn, no merge conflicts, no re-compile of unrelated modules.
+4. **Effortless Testing**
+   Mocks implement only the targeted interface — no dummy stubs, no `throws new Error("not implemented")`, just precise, fast unit tests.
+5. **Composable Magic**
+   Build legends by composing small scrolls, not inflating monoliths.
 
-1.  **Cohesion & Decoupling** 🔗  
-    Classes depend only on the methods they truly need, reducing unnecessary coupling. Each interface holds only the runes of its own craft, never burdening others with foreign scripts.
+## Carrying the Light Forward 🚀
 
-2.  **Maintainability & Readability** 📜  
-    A class’s responsibilities are clear at a glance, making code easier to read, maintain, and debug. Like labels on well-ordered scrolls, its purpose is never in doubt.
+ISP is not cast once, but practiced, etched into every design decision.
 
-3.  **Flexibility & Growth** 🔄  
-    Small, focused interfaces are simple to extend and recombine. New roles—such as `IHealer`—can be inscribed without disturbing the ancient archives.
+- **Design for roles**, not crowds.
+- **Favour composition** of interfaces over inheritance of giants.
+- **Question every method**: _“Does the client truly need this rune?”_
+- **Refactor mercilessly** when you smell the must of a swollen tome.
 
-4.  **Simpler Testing** ✅  
-    Tests can focus on exactly what a class does, without stubbing out irrelevant methods. Only the needed scrolls are unrolled for practice, sparing the scribe from needless incantations.
+May your interfaces stay lean, your contracts honest, and your codebase a library with each scroll upon its rightful shelf.
 
----
-
-<a id="conclusion"></a>
-
-## The Developer’s Quest for Lean Design 🗺️
-
-Mastering the ISP is like a scribe learning _brevity_—true strength comes not from writing every spell into one scroll, but from crafting the exact scroll needed for the task. It is the path from complexity to clarity.
-
-### Wisdom for the Road Ahead 🧭
-
-- **Design for Roles** — let each interface reflect the true nature of its class.
-- **Favor Composition** — weave scrolls together to grant greater powers.
-- **Stay Focused** — avoid inscribing methods that don’t serve the craft.
-- **Refactor Fearlessly** — when you find a bloated tome, divide it into focused scrolls. The clarity is worth the effort.
-
-Scribe your scrolls with intent, where each rune serves its purpose.
-
-_May your interfaces stay lean and purposeful, guiding your creations toward greatness in the realm of code._ ✨🚀
+_Scribe on, wizard—one focused rune at a time._ ✨🪶

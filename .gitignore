@@ -1,2 +1,3 @@
-guides/
+.old/
+.guides/
 *-v*.md
