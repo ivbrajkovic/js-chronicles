@@ -129,7 +129,7 @@ The core logic defines what it needs, and the implementation provides it.
 This is why the principle matters so much.
 
 Business rules tend to live longer than the tools around them.  
-Your checkout flow may stay with you for years. ###
+Your checkout flow may stay with you for years.  
 The payment provider you use today may not.
 
 DIP helps us design for that reality.
@@ -197,9 +197,7 @@ class CheckoutService {
 Now `CheckoutService` no longer knows about Stripe.  
 It only knows about something that can charge.
 
-That’s the inversion.
-
-The high-level logic depends on an abstraction, not a detail.
+That’s the inversion—the high-level logic depends on an abstraction, not a detail.
 
 ### Step 4 — Plug in the Implementation
 
@@ -264,7 +262,7 @@ const checkout = new CheckoutService(new FakePayment());
 checkout.checkout(100);
 ```
 
-No network calls. No external setup.
+No network calls. No external setup.  
 Just the business logic, isolated and easy to verify.
 
 ### 2. Changing Providers Stops Being a Refactor 🔄
