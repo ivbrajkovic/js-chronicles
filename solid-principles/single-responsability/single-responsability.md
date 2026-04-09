@@ -1,5 +1,8 @@
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/db215b41-c280-4b78-a578-f383f1f9d4b3" width="800" />
+  <img src="./images/A Glowing, Enchanted Blade Resting In A Stone Pede-compressed.png" width="800" />
+    <p align="center" style="font-size: 0.8em; color: gray; margin-top: -10px;">
+    Artwork created using CGDream
+  </p>
 </p>
 
 # The Magic of Single Responsibility in TypeScript

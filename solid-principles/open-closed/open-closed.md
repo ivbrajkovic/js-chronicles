@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/An Enchanted Spellbook Floating In Mid-air.png" width="800" />
+  <img src="./images/An Enchanted Spellbook Floating In Mid-air-compressed.png" width="800" />
     <p align="center" style="font-size: 0.8em; color: gray; margin-top: -10px;">
     Artwork created using CGDream
   </p>

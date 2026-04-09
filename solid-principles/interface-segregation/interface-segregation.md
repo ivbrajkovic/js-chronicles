@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/Plain Black Paperback Book Lying On Archaic Tablet.png" width="800" />
+  <img src="./images/Plain Black Paperback Book Lying On Archaic Tablet-compressed.png" width="800" />
     <p align="center" style="font-size: 0.8em; color: gray; margin-top: -10px;">
     Artwork created using CGDream
   </p>
@@ -143,7 +143,7 @@ class DwarvenBlacksmith implements IWeaponForger {
 No `Error` escapes their lips—their ink is _truthful_.
 
 <p align="center">
-  <img src="./asset/Two Photographs Of A Woman And A Man With Long Hai.png" width="800" />
+  <img src="./images/Two Photographs Of A Woman And A Man With Long Hai-compressed.png" width="800" />
   <p align="center" style="font-size: 0.8em; color: gray; margin-top: -10px;">
     Artwork created using CGDream
   </p>

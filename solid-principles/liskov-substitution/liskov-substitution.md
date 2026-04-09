@@ -1,10 +1,9 @@
 <p align="center">
-  <img src="./assets/An Open Book Sitting On Top Of A Pile Of Rocks.png" width="800" />
+  <img src="./images/An Open Book Sitting On Top Of A Pile Of Rocks-compressed.png" width="800" />
     <p align="center" style="font-size: 0.8em; color: gray; margin-top: -10px;">
     Artwork created using CGDream
   </p>
 </p>
-
 
 # The Constellation of Substitution: The Liskov Substitution Principle ✨
 
@@ -76,7 +75,10 @@ class Shape {
 }
 
 class Rectangle extends Shape {
-  constructor(public width: number, public height: number) {
+  constructor(
+    public width: number,
+    public height: number,
+  ) {
     super();
   }
   area(): number {
@@ -131,7 +133,10 @@ abstract class Shape {
 }
 
 class Rectangle extends Shape {
-  constructor(public width: number, public height: number) {
+  constructor(
+    public width: number,
+    public height: number,
+  ) {
     super();
   }
   area(): number {
@@ -185,7 +190,10 @@ Let’s return to our shapes and see how easily new subclasses fit in—without 
 
 ```typescript
 class Triangle extends Shape {
-  constructor(public base: number, public height: number) {
+  constructor(
+    public base: number,
+    public height: number,
+  ) {
     super();
   }
   area(): number {
