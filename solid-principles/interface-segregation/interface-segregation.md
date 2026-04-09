@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./asset/Plain Black Paperback Book Lying On Archaic Tablet.png" width="800" />
+  <img src="./assets/Plain Black Paperback Book Lying On Archaic Tablet.png" width="800" />
     <p align="center" style="font-size: 0.8em; color: gray; margin-top: -10px;">
     Artwork created using CGDream
   </p>

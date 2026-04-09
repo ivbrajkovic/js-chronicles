@@ -1,68 +1,82 @@
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/84dbca82-0fbe-4e6f-9512-7c5d811dd6c3" width="800" />
+  <img src="./assets/An Enchanted Spellbook Floating In Mid-air.png" width="800" />
+    <p align="center" style="font-size: 0.8em; color: gray; margin-top: -10px;">
+    Artwork created using CGDream
+  </p>
 </p>
 
-# The Spellbook of Scalable Design: The Open-Closed Principle in Action
+# The Spellbook of Scalable Design: The Open-Closed Principle
 
 ### Table of Contents
-- [Introduction: A Doorway to Open-Closed Enchantment](#intro)
-- [The Heart of the Open-Closed Principle](#core)
-- [The Apprentice’s First Spell: A Simple Example](#example)
-- [Building the Enchanted Fortress: Scaling with Elegance](#refactor)
-- [Guardians of the Principle: Best Practices](#benefits)
-- [The Final Illumination: Wisdom for the Journey Ahead](#conclusion)
+
+- [A Doorway to Open-Closed Enchantment](#intro)
+- [The Heart of the OCP](#core)
+- [Implementing the OCP](#implementation)
+- [The Apprentice’s First Spell](#example)
+- [The Power of Composition](#benefits)
+- [Beware of These Traps](#traps)
+- [Beyond the Bookstore’s Magic](#beyond)
+- [Guardians of the Principle](#guardians)
+- [Wisdom for the Journey Ahead](#conclusion)
 
 <a id="intro"></a>
-## Introduction: A Doorway to Open-Closed Enchantment ✨
 
-In the grand tapestry of software design, there exists a constellation of guiding stars known as the **SOLID** principles. Among them, the **Open-Closed Principle** (OCP) shines brightly, offering a simple yet profound promise: _“Your code should be open for extension but closed for modification.”_ A paradox, perhaps, but one that holds the power to transform how we bring code to life.
+## A Doorway to Open-Closed Enchantment ✨
 
->_"The Open-Closed Principle is what separates fragile systems that break with every change from robust systems that adapt and thrive over time."_ — [Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin)
+In the grand tapestry of software design, there exists a constellation of guiding stars known as the **SOLID principles**. Among them, the **Open-Closed Principle (OCP)** rises as the second star, illuminating the realm of code.
 
-Imagine your codebase as a magical castle. 🏰 The OCP ensures you can add new towers and wings without disrupting the existing walls. It safeguards the integrity of your creation, welcoming change while banishing the chaos of unintended consequences.
+> _"The Open-Closed Principle is what separates fragile systems that break with every change from robust systems that adapt and thrive over time."_ — [Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin)
 
-Prepare your wands—or rather, your favorite IDE—and prepare to unlock the mysteries of code that grows without breaking. 🪄💻
+The OCP offers developers a simple promise—**adaptable**. It whispers, _"Your code should be open for extension but closed for modification."_ — a paradox? Perhaps. But one that unlocks the secret to bringing code to life.
+
+Prepare to witness this principle turn rigid, fragile code into flexible, resilient masterpieces. Gather your wands—or rather, your favorite IDE—and embark on a journey to unravel the ancient magic of scalable code. 🪄
 
 <a id="core"></a>
-## The Heart of the Open-Closed Principle 🌟
 
-Imagine a delicate clockwork machine, its gears and levers moving in perfect harmony. 🕰️ Each piece has its place, and the whole system runs smoothly. Now, picture adding a new feature—a second hand to the clock. Without the OCP, this might mean dismantling the mechanism, risking chaos. With the right design, however, you can add the second hand effortlessly, preserving the system’s integrity.
+## The Heart of the OCP 🌟
 
-### What Does Open-Closed Mean?
-The OCP asks us to strike a balance. Our designs should:
-- **Be open for extension**: Enable adding new features as needs evolve.
-- **Be closed for modification**: Protect existing, reliable code from changes.
+Imagine a delicate clockwork machine 🕰️, where every gear moves in perfect harmony. Now, what if you wanted to add a second hand to enhance its functionality?
 
-In TypeScript, this means embracing abstraction. Instead of altering an existing class or function, you enhance functionality through new components leveraging interfaces, inheritance, or composition.
+Without OCP, this might mean _dismantling the entire mechanism_, risking chaos and introducing unintended consequences. But with the right design, you can simply attach the new piece without disturbing the rest.
 
-### The Role of TypeScript’s Magic
-TypeScript equips us with tools to wield the OCP effectively:
-- **Interfaces** act like blueprints, enabling us to define contracts for behavior.
-- **Abstract classes** offer a base for building on without changing the core.
-- **Generics** allow reusable and flexible structures.
+This is the essence of the OCP. It asks us to balance two critical goals:
 
-Through these tools, OCP becomes a practical approach to design, fostering systems that evolve gracefully while preserving stability. Now, let’s see what happens when this principle is ignored—and how applying its magic can illuminate a better path. 👣🕯️
+1. **Be open for extension** — Embrace the ever-evolving needs of our software by allowing new features to be added gracefully.
+2. **Be closed for modification** — Protect the sanctity of existing code, ensuring changes don’t ripple through the system like a chaotic spell.
+
+<a id="implementation"></a>
+
+## Implementing the OCP ✨
+
+In TypeScript, embracing OCP means harnessing the power of **abstraction**. Instead of modifying existing code, we **extend functionality** by conjuring new components that seamlessly integrate with the system.
+
+Here’s how TypeScript empowers us to wield this magic:
+
+- **Interfaces** — Define contracts for behavior, allowing us to create multiple implementations that adhere to a common structure.
+- **Abstract classes** — Provide reusable foundations, encapsulating common functionality while allowing for specialization through inheritance.
+- **Generics** — Enable the creation of flexible, reusable structures that can adapt to different types, promoting code reuse and maintainability.
+
+Through these tools, the OCP becomes more than a design ideal—it ensures that code evolves gracefully without breaking under the weight of change.
 
 <a id="example"></a>
-## The Apprentice’s First Spell: A Simple Example 🪄
 
-Let us begin with a tale of two realities: one where the OCP is but a distant dream, and another where its magic reshapes how we design our code. Our journey starts with a simple scenario.
+## The Apprentice’s First Spell
 
-The Problem: A Spellbook Without Structure
-Imagine we’re crafting a program for a magical bookstore. This program calculates discounts for different customer types: wizards, alchemists, and apprentices. Here’s our initial implementation:
+Let us begin with a tale of two realities—one where the OCP is but a distant dream, and another where its magic reshapes the very fabric of our code.
 
-Imagine we’re crafting a program for a magical bookstore, one that calculates discounts for different customer types: wizards, alchemists, and apprentices. At first glance, the solution seems simple—but as you’ll see, neglecting structure can conjure trouble. Here’s the initial implementation:
+### The Problem: A Spellbook Without Structure
 
-Imagine we’re crafting a program for a magical bookstore, one that calculates discounts for different customer types: wizards, alchemists, and apprentices. Here’s the initial implementation:
+Imagine we’re building a magical bookstore that calculates discounts for different customer types: _wizards_, _alchemists_, and _apprentices_. Here’s our first approach, a spell that lacks the finesse of OCP:
 
 ```typescript
+// 🚫 A rigid spell that requires modification for each new customer type
 class DiscountCalculator {
   calculate(customerType: string, amount: number): number {
-    if (customerType === "wizard") {
+    if (customerType === 'wizard') {
       return amount * 0.9; // 10% off for wizards
-    } else if (customerType === "alchemist") {
+    } else if (customerType === 'alchemist') {
       return amount * 0.85; // 15% off for alchemists
-    } else if (customerType === "apprentice") {
+    } else if (customerType === 'apprentice') {
       return amount * 0.95; // 5% off for apprentices
     } else {
       return amount; // No discount
@@ -71,40 +85,47 @@ class DiscountCalculator {
 }
 ```
 
-At first glance, this spell works as intended. But what happens when new customer types, like "sorcerers" or "artificers," are introduced? Each update to the `DiscountCalculator` class disturbs the balance of the existing code and violates OCP, creating a tangled web of conditions.
+At first glance, this spell works. But what happens when we introduce new customer types, such as _sorcerers_ or _artificers_?
+
+❌ We have to modify the class each time, violating OCP  
+❌ The more conditions we add, the harder the code is to maintain
+
+### The Solution: Casting the Open-Closed Spell 🪄
+
+To wield the power of the OCP, we must design our code with change in mind, leveraging abstraction and polymorphism to create a system that welcomes extension but resists modification.
+
+First, we create a **magical contract**—an interface that defines the behavior of our discount spells:
 
 ```typescript
-// Step 1: Define a common interface for discounts
 interface DiscountStrategy {
   calculate(amount: number): number;
 }
+```
 
-// Step 2: Implement specific discount strategies
+Each discount type becomes a **specialized spell** in our grimoire, ready to be invoked when needed:
+
+```typescript
+// 💡 Key Insight: Each discount strategy encapsulates its own logic.
+// This isolation ensures changes to one discount don't impact others.
+
 class WizardDiscount implements DiscountStrategy {
   calculate(amount: number): number {
-    return amount * 0.9;
+    return amount * 0.9; // Mastery deserves recognition
   }
 }
 
 class AlchemistDiscount implements DiscountStrategy {
   calculate(amount: number): number {
-    return amount * 0.85;
+    return amount * 0.85; // For those who transform knowledge
   }
 }
+```
 
-class ApprenticeDiscount implements DiscountStrategy {
-  calculate(amount: number): number {
-    return amount * 0.95;
-  }
-}
+Our `DiscountCalculator` now becomes a vessel for any discount strategy, adapting to new spells with ease:
 
-// Step 3: Modify the calculator to use strategies
+```typescript
 class DiscountCalculator {
-  private strategy: DiscountStrategy;
-
-  constructor(strategy: DiscountStrategy) {
-    this.strategy = strategy;
-  }
+  constructor(private strategy: DiscountStrategy) {}
 
   calculate(amount: number): number {
     return this.strategy.calculate(amount);
@@ -112,10 +133,7 @@ class DiscountCalculator {
 }
 ```
 
-Now, when a new customer type emerges, we add a new strategy (e.g., `SorcererDiscount`) without altering the `DiscountCalculator` class. This keeps the original codebase intact, adhering to OC’s magical promise.
-
-### Testing the Spell
-Here’s how we might use the new structure:
+Casting a discount spell becomes **effortless** and **elegant**:
 
 ```typescript
 const wizardCalculator = new DiscountCalculator(new WizardDiscount());
@@ -125,36 +143,41 @@ const alchemistCalculator = new DiscountCalculator(new AlchemistDiscount());
 console.log(alchemistCalculator.calculate(100)); // Output: 85
 ```
 
-This approach not only adheres to OCP but also ensures our code remains adaptable and future-proof. Adding a new discount type is now as simple as creating a new strategy class, leaving the rest of the system untouched.
+Need a new discount? Just add a new strategy. No modifications required—only the joy of extensions. That’s the **magic** of OCP.
 
-<a id="refactor"></a>
-## Building the Enchanted Fortress: Scaling with Elegance 🏰
+<a id="benefits"></a>
 
-Our bookstore has grown. We now offer seasonal promotions, loyalty bonuses, and bundle discounts. Each of these requires its own calculation logic. Without a structured approach, this complexity could turn our elegant spellbook into a chaotic tome of conditions. Let’s see how OCP helps us keep the magic alive.
+## The Power of Composition 📚
 
-### Enhancing the Spell: Composition Over Inheritance
-Rather than relying solely on inheritance, we’ll embrace composition, which allows us to combine multiple behaviors dynamically. This design ensures our system is flexible enough to scale with new requirements.
+Our magical bookstore has grown. We now offer seasonal promotions, loyalty bonuses, and bundle discounts, but with this expansion comes added complexity.
 
-Here’s how we can handle multiple discounts dynamically:
+Rather than creating an ever-growing tangle of conditions, we embrace **composition**—the art of combining simple spells into complex enchantments.
+
+### The Composite Spellbook 🔮
+
+A composite strategy allows us to stack discounts, creating a symphony of savings:
 
 ```typescript
-// Step 1: Create a composite strategy
 class CompositeDiscount implements DiscountStrategy {
-  private strategies: DiscountStrategy[];
-
-  constructor(...strategies: DiscountStrategy[]) {
-    this.strategies = strategies;
-  }
+  constructor(private strategies: DiscountStrategy[]) {}
 
   calculate(amount: number): number {
-    return this.strategies.reduce((currentAmount, strategy) => strategy.calculate(currentAmount), amount);
+    return this.strategies.reduce(
+      (total, strategy) => strategy.calculate(total),
+      amount,
+    );
   }
 }
+```
 
-// Step 2: Add new discount strategies
+### Crafting New Spells 🪄
+
+Each new discount becomes a self-contained spell, easy to understand and even easier to combine:
+
+```typescript
 class SeasonalDiscount implements DiscountStrategy {
   calculate(amount: number): number {
-    return amount * 0.8; // 20% off for seasonal sales
+    return amount * 0.8; // 20% off seasonal sales
   }
 }
 
@@ -163,46 +186,65 @@ class LoyaltyDiscount implements DiscountStrategy {
     return amount * 0.95; // 5% off for loyal customers
   }
 }
-
-// Step 3: Enhance the calculator to use composite strategies
-const seasonalLoyaltyCalculator = new DiscountCalculator(
-  new CompositeDiscount(new SeasonalDiscount(), new LoyaltyDiscount())
-);
-
-console.log(seasonalLoyaltyCalculator.calculate(100)); // Output: 76 (20% off, then 5% off)
 ```
 
-With this approach, introducing new discount types—such as flash sales or limited-time promotions—becomes effortless. You simply craft a new strategy and combine it with existing ones using the CompositeDiscount. This flexible design ensures the core DiscountCalculator class remains untouched, keeping the system scalable.
+### Constructing Dynamic Discounts 🏗️
 
-<a id="benefits"></a>
-## Guardians of the Principle: Best Practices 🛡️
+With the power of composition at our fingertips, we can mix and match strategies on the fly:
 
-In the enchanted realm of software design, the OCP grants developers the power to wield change gracefully. But with great power comes great responsibility. Like a novice sorcerer learning to control their spells, it’s crucial to balance ambition with discipline. The principle is only as strong as the care with which it is applied.
+```typescript
+const specialOffer = new DiscountCalculator(
+  new CompositeDiscount([new SeasonalDiscount(), new LoyaltyDiscount()]),
+);
 
-### Avoiding Common Pitfalls
-As you practice this art, beware the following traps:
-1. **Breaking the Castle Walls**: Modifying existing classes instead of extending them can lead to unintended consequences. Always ask, _“Can I achieve this by adding a new component?”_
+console.log(specialOffer.calculate(100)); // Output: 76
+```
 
-2. **Over-Enchanting**: Introducing abstraction where it’s not needed can create unnecessary complexity. Simplicity is often the most powerful magic.
+Adding new discounts—like flash sales or limited-time offers—is as simple as crafting a new strategy and integrating it into `CompositeDiscount`, while the `DiscountCalculator` remains blissfully untouched.
 
-3. **Brittle Structures**: Systems that over-rely on inheritance can become brittle. Prioritize flexible patterns, such as composition, that evolve gracefully.
+<a id="traps"></a>
 
-4. **Neglecting Documentation**: Even the most elegant spellbook becomes indecipherable without annotations. Clear documentation ensures that the system’s magic remains accessible to all.
+## Beware of These Traps 🎭
 
-With these lessons in mind, your system will remain a marvel of stability and adaptability, capable of growing without unraveling. 
+Even the most skilled wizards occasionally stumble. Here are some common pitfalls to watch for:
+
+- **The Premature Abstraction Curse** — Not every piece of code needs to be extensible from day one. Let the need for flexibility emerge naturally through real requirements.
+- **The Everything-Is-A-Strategy Hex** — Sometimes a simple if statement suffices. Don’t overcomplicate straightforward logic with unnecessary abstractions.
+- **The Hidden Dependencies Trap** — Ensure your strategies are truly independent. Hidden dependencies between implementations can turn your elegant design into a tangled web.
+
+<a id="beyond"></a>
+
+## Beyond the Bookstore’s Magic 🌍
+
+The patterns we’ve explored within the walls of our magical shop extend far beyond its threshold. In the everyday world, you’ll find OCP powering:
+
+- **E-commerce platforms** that adapt to new payment methods without disrupting the core checkout process. Think Stripe adding Apple Pay support without changing existing payment flows.
+- **Content management systems** that welcome new media types while keeping the content creation flow intact. Like WordPress seamlessly supporting new post formats.
+- **API gateways** that handle diverse authentication strategies without modifying the underlying service logic. Consider how Auth0 can add social login providers without touching existing authentication flows
+
+Each system stays stable while growing stronger—just like a well-crafted spellbook.
+
+<a id="guardians"></a>
+
+## Guardians of the Principle 🛡️
+
+To truly harness OCP’s power, keep these wisdom scrolls close:
+
+1. **Extend, Don’t Modify** 🌱 — Modifying existing classes instead of extending them can unleash unintended chaos. Always ask, “Can I achieve this by adding a new component instead of altering an existing one?”
+2. **Avoid Over-Enchantment** 🌿 — Remember, even the most skilled wizards use their powers sparingly. Excessive abstraction can lead to a labyrinth of complexity, obscuring the very essence of your code.
+3. **Favor Composition Over Inheritance** 🏰 — Just as a master alchemist combines simple ingredients to create potent elixirs, we should strive to build complex systems from simple, self-contained components.
+4. **Write Clear Incantations** 📜 — Even the most elegant magic is useless if no one can decipher its secrets. Clear, well-documented code ensures that the wisdom of your system remains accessible to all who seek it.
+
+By following these principles, your codebase will become a fortress of adaptability, standing strong in the face of changing requirements. 🏰
 
 <a id="conclusion"></a>
-## The Final Illumination: Wisdom for the Journey Ahead 🔮
 
-As our journey through the OCP comes to an end, take a moment to marvel at the enchantment you’ve crafted. What began as a simple promise—_open for extension, closed for modification_—has evolved into a philosophy. In the mystical world of TypeScript, OCP is more than a principle; it’s a **mindset**—one that inspires us to build systems that welcome change without disrupting their foundations.
+## Wisdom for the Journey Ahead 🔮
 
-### A Reflection on the Journey
-- **Simplicity leads to elegance**: By embracing abstraction and composition, we create systems that remain clean, modular, and adaptable.
-- **Flexibility enables growth**: Extending behavior with new components rather than altering existing ones preserves stability and reduces risk.
-- **Disciplined creativity creates magic**: Thoughtful use of patterns like strategies and composites transforms complexity into clarity.
-- **A philosophy of empowerment**: Each concept builds upon the last, forming a practical framework that empowers us to design with care and confidence.
+As our exploration of OCP concludes, remember—great systems aren’t conjured overnight. They _grow_ through the careful cultivation of principles like OCP. Each feature you add, each pattern you implement, is another brick in the foundation of flexible, maintainable code.
 
-### Carrying the Light Forward
-The OCP is not just a rule—it’s a journey. With each project, you’ll refine your craft, learning to balance simplicity and extensibility. Great systems are not conjured overnight; they are woven layer by layer, with care, patience, and a touch of magic.
+The next time you face a changing requirement, remember the lessons of our magical bookstore. Ask yourself: _"Can I extend rather than modify? Can I create new components rather than alter existing ones?"_
 
-May your abstractions flow naturally, your solutions bring clarity, and your systems grow stronger with every layer you craft. ✨
+In doing so, you’ll craft systems that don’t just work today but evolve gracefully with tomorrow’s needs. After all, isn’t that the true magic of software design? ✨
+
+As you venture forth, armed with OCP wisdom, remember—you’re not just writing code, but shaping the future of software. May your journey be filled with the joy of extension and the wisdom to resist unnecessary modification. 📚🧙‍♂️

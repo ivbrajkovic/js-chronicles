@@ -1,6 +1,10 @@
 <p align="center">
-  <img src="./asset/An Open Book Sitting On Top Of A Pile Of Rocks.png" width="800" />
+  <img src="./assets/An Open Book Sitting On Top Of A Pile Of Rocks.png" width="800" />
+    <p align="center" style="font-size: 0.8em; color: gray; margin-top: -10px;">
+    Artwork created using CGDream
+  </p>
 </p>
+
 
 # The Constellation of Substitution: The Liskov Substitution Principle ✨
 
