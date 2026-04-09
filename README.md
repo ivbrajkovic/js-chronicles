@@ -47,6 +47,7 @@ Whether you're a beginner or an experienced developer, you'll find valuable reso
 | [Open-Closed](solid-principles/open-closed/open-closed.md)                               | Explores the OCP, with examples and strategies for extensible code.                       | SOLID, OCP, extensibility, abstraction   | Intermediate |
 | [Liskov Substitution](solid-principles/liskov-substitution/liskov-substitution.md)       | Explains the LSP, its importance in object-oriented design, and practical examples.       | SOLID, LSP, inheritance, polymorphism    | Intermediate |
 | [Interface Segregation](solid-principles/interface-segregation/interface-segregation.md) | Covers the ISP, its benefits, and how to implement it in TypeScript interfaces.           | SOLID, ISP, interfaces, decoupling       | Intermediate |
+| [Dependency Inversion](solid-principles/dependency-inversion/dependency-inversion.md)    | A deep dive into the DIP, with practical examples and common pitfalls.                    | SOLID, DIP, dependency management        | Advanced     |
 
 ## How to Use
 
