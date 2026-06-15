@@ -5,74 +5,119 @@
   </p>
 </p>
 
-# Your Component Has Too Many Props
+# Your React Component Has Too Many Props
 
-##### Why prop-heavy React components become harder to read, harder to change, and easier to break.
+##### **A love letter to selfish components, strategic laziness, and saying no to prop-driven chaos.**
 
 ### Table of Contents
 
-- [A Reasonable Beginning](#a-reasonable-beginning)
-- [How It Gets Out of Hand](#how-it-gets-out-of-hand)
-- [The Problem Is Not “Too Many Props”](#the-problem-is-not-too-many-props)
-- [What “Selfish” Components Actually Mean](#what-selfish-components-actually-mean)
-- [From Configuration to Composition](#from-configuration-to-composition)
-- [Why This Is Better (Even If It’s More Verbose)](#why-this-is-better-even-if-its-more-verbose)
-- [This Pattern Scales](#this-pattern-scales)
-- [Practical Heuristics](#practical-heuristics)
-- [Closing Thought](#closing-thought)
+- [The One That Started It All](#the-one-that-started-it-all)
+- [The Slow Death by a Thousand Props](#the-slow-death-by-a-thousand-props)
+- [Uncle Bob Walks Into a React Component](#uncle-bob-walks-into-a-react-component)
+- [What "Selfish" Actually Means (It's Not Therapy)](#what-selfish-actually-means-its-not-therapy)
+- [The Great Unlearning: From Configuration to Composition](#the-great-unlearning-from-configuration-to-composition)
+- [But It's More Code! (And Why That's Fine, Actually)](#but-its-more-code-and-why-thats-fine-actually)
+- [This Party Scales, I Promise](#this-party-scales-i-promise)
+- [The "Call an Ambulance" Checklist](#the-call-an-ambulance-checklist)
+- [The Part Where We Feel Things](#the-part-where-we-feel-things)
 
-We tend to equate flexibility with good component design.
+## The One That Started It All
 
-In practice, it often leads to the opposite.
+Let me tell you about the time I almost quit React.
 
-Most React components don’t become hard to maintain because they were written poorly. They become hard to maintain because they were made too flexible.
+There I was, 2 AM, coffee cold, eyes burning, staring at a component with **65 props**.
 
-Every new prop feels harmless:
+**Sixty‑five.**
 
-- _“just one more option”_
-- _“just support this case”_
-- _“just make it reusable”_
+Some of them were booleans that controlled other booleans. Some were strings that only made sense if another prop was a specific value. One poor prop — I'll never forget this — was called `displayVariant` and accepted 12 different values, each triggering a completely different layout.
 
-Until one day, the component has 30 props — and nobody really understands how it works anymore.
-
-> Large prop APIs are usually a design failure.
-
-Not because props are bad, but because they often hide responsibilities that should have been made explicit.
-
-<a id="a-reasonable-beginning"></a>
-
-## A Reasonable Beginning
-
-Let’s start with something simple:
+But the real masterpiece was the _family_ of props. You know the pattern:
 
 ```tsx
-<Avatar src={user.avatarUrl} />
+const StreamingPlatformSelector = ({
+  platformName,
+  searchQuery,
+  setSearchQuery,
+
+  huluSearchResults,
+  huluTotalCount,
+  selectedHuluBrands,
+  setSelectedHuluBrands,
+  huluOffset,
+  setHuluOffset,
+  isHuluNextPageLoading,
+
+  peacockSearchResults,
+  peacockTotalCount,
+  selectedPeacockBrands,
+  setSelectedPeacockBrands,
+
+  // ...repeat for six more platforms (Paramount, Discovery, Apple, Flickster, Netflix, Amazon)
+  // Each with its own search results, total count, selected items, offset, and loading state
+
+  isAdvancedMode,
+  regionCode,
+  isEditFlow,
+  selectedDataSourceRadio,
+  setSelectedDataSourceRadio,
+}: TStreamingPlatformSelectorProps) => {
+  // Component implementation...
+};
 ```
 
-Then a small improvement:
+The real version had 65 props. I counted twice. Then I stared at the wall for a while.
+
+That component worked. I'll give it that. It rendered everything from user avatars to full‑page dashboards. It was flexible. It was powerful. It was also unholy.
+
+> **The worst part?** It wasn't written by a junior developer who didn't know better. It was written by someone experienced, under real deadlines, solving real problems one reasonable prop at a time.
+
+And that's when I discovered something counterintuitive:
+
+> **Flexibility is not a virtue. It's a liability waiting to happen.**
+
+## The Slow Death by a Thousand Props
+
+It never starts with 65 props. It starts so innocently.
 
 ```tsx
-<Avatar src={user.avatarUrl} size="md" />
+<Avatar src={user.profilePic} />
 ```
 
-Still fine.
+Beautiful. Clean. This component has _no opinions_ about your life choices. It just renders a dang picture.
 
-The component is focused:
+Then someone says: "Can we make it a little bigger?"
 
-- it renders an avatar
-- it controls its own presentation
+```tsx
+<Avatar src={user.profilePic} size="md" />
+```
 
-Nothing unusual here.
+Fine. Whatever. Size prop is reasonable. We're still friends.
 
-<a id="how-it-gets-out-of-hand"></a>
+Then product chimes in: "We need to show online status."
 
-## How It Gets Out of Hand
+```tsx
+<Avatar src={user.profilePic} size="md" showStatus status="online" />
+```
 
-Now the component starts evolving.
+Okay, getting a little crowded, but I see where this is going.
+
+Then design: "Admins should have a badge."
+
+```tsx
+<Avatar src={user.profilePic} size="md" showStatus status="online" showBadge badgeContent="Admin" />
+```
+
+Then engineering: "Can we add tooltips?"
+
+Then QA: "What about fallback initials?"
+
+Then marketing: "We need different badge colors for different roles. Also the status dot should be movable. Also can it animate? Also—"
+
+And suddenly, you're here:
 
 ```tsx
 <Avatar
-  src={user.avatarUrl}
+  src={user.profilePic}
   size="md"
   showStatus
   status="online"
@@ -81,88 +126,88 @@ Now the component starts evolving.
   badgeContent="Admin"
   badgeColor="red"
   showTooltip
-  tooltip={user.name}
+  tooltip={user.displayName}
   fallbackInitials
   shape="circle"
+  animateOnHover
+  ringColor="blue"
+  ringWidth={2}
 />
 ```
 
-This is not exaggerated. This happens.
+**This is not an avatar anymore.**
 
-At some point, the component stops being an avatar.
+This is a Swiss Army knife that's pretending to be an avatar. It's a tiny rendering engine with its own internal rulebook. It's making decisions it has no business making:
 
-> It becomes a profile system controlled by props.
+- Whether to show status → **product decision**
+- How roles are displayed → **domain logic**
+- Where the badge goes → **layout concern**
+- What the tooltip says → **content decision**
 
-<a id="the-problem-is-not-too-many-props"></a>
+Your avatar component now knows more about your business rules than your product manager does. That's not flexibility. That's **responsibility creep**.
 
-## The Problem Is Not “Too Many Props”
+And here's the worst part: nobody did anything wrong. Every single change was reasonable. But reasonable changes, stacked on top of each other, create unreasonable complexity.
 
-> _“A class should have only one reason to change.”_
-> — [Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin)
+## Uncle Bob Walks Into a React Component
 
-The number of props is only the symptom.
+Remember the Single Responsibility Principle? From Uncle Bob? The one that says:
 
-The real problem is this:
+> _“A class should have only one reason to change.”_ — [Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin)
 
-> Props are being used to encode decisions instead of composing structure.
+Yeah, that applies to components too.
 
-The component is no longer just rendering an avatar.
-It is deciding:
+Let's think about our `Avatar` monstrosity. How many reasons does it have to change?
 
-- what metadata to show
-- how presence is represented
-- how content is composed
+1. **Avatar styling changes** — sure, that's its job.
+2. **Product decides online status should look different** — wait, why does Avatar care about that?
+3. **Admin badge gets a new color** — oh no.
+4. **Tooltip positioning changes across the app** — we're in trouble.
+5. **Business decides users can have multiple roles** — 🔥
 
-This leads to predictable issues:
+Every time a _business rule_ changes, your UI component changes. That's the opposite of separation of concerns. That's **concern entanglement**. That's how you spend your Friday night debugging why changing a badge color broke the tooltip animation.
 
-- hidden complexity in prop combinations
-- tight coupling between UI and domain logic
-- fragile changes as new props get added
-- unclear usage — you can’t tell what renders by reading JSX
+## What "Selfish" Actually Means (It's Not Therapy)
 
-And most importantly:
+When I say your component should be _selfish_, I don't mean it should refuse to share its toys or talk behind other components' backs.
 
-> Domain logic starts leaking into the component.
+I mean:
 
-That’s the real failure.
-
-<a id="what-selfish-components-actually-mean"></a>
-
-## What “Selfish” Components Actually Mean
-
-A better mental model is this:
-
-> A component should be selfish.
-
-Not in a negative sense, but in a protective one.
+> **A selfish component protects its boundaries like a dragon protects its hoard.**
 
 A selfish component:
 
-- defines its responsibility
-- protects its boundaries
-- refuses decisions that don’t belong to it
+- **Knows what it is** — "I render avatars. That's it. That's the whole thing."
+- **Refuses outside opinions** — "You want a badge? Put it next to me. I'm not your parent."
+- **Stays in its lane** — "I handle layout and structure. Content is YOUR problem, caller."
 
-For an avatar, that means:
+For an avatar, selfishness looks like:
 
-- it owns structure and layout
-- it does not decide content
+- **It owns** — the image tag, the sizing, the border radius, the alt text fallback
+- **It does NOT own** — status indicators, badges, tooltips, business logic, or your life choices
 
-Which leads to:
+Here's the rule I tattooed on my brain (metaphorically, I'm scared of needles):
 
-> Content belongs to callers. Structure belongs to components.
+> **Content belongs to callers. Structure belongs to components.**
 
-<a id="from-configuration-to-composition"></a>
+Say it with me now.
 
-## From Configuration to Composition
+## The Great Unlearning: From Configuration to Composition
 
-> _“Design means to break things apart in such a way that they can be put back together.”_
-> — [Rich Hickey](https://en.wikipedia.org/wiki/Rich_Hickey)
+Here's where we unlearn everything React tutorials taught us about "flexible components."
 
-Instead of teaching the component every possible variation, we keep it focused and compose content explicitly:
+Most developers think:
+
+```
+Flexible component = many props = good
+```
+
+But that's wrong. That's **configuration thinking**. You're building a component that _configures itself_ based on flags.
+
+Instead, think **composition**:
 
 ```tsx
 <Avatar size="md">
-  <img src={user.avatarUrl} alt={user.name} />
+  <img src={user.profilePic} alt={user.displayName} />
 
   {user.isOnline && <StatusIndicator />}
 
@@ -170,114 +215,183 @@ Instead of teaching the component every possible variation, we keep it focused a
 </Avatar>
 ```
 
-What changed:
+Look at what disappeared:
 
-- no `showStatus`, `showBadge`, or `tooltip`
-- no hidden rules inside the component
-- no domain logic encoded in props
+- ❌ `showStatus` — gone. Just put the status inside or don't.
+- ❌ `showBadge` — gone. Just render the badge or don't.
+- ❌ `tooltip` — gone. Wrap the whole thing in a tooltip component.
+- ❌ `statusPosition` — gone. That's the status component's problem now.
+- ❌ All those conditional rules — gone. They're now _visible at the call site_.
 
-Everything is visible at the call site.
+**This is not less code. It's more honest code.**
 
-<a id="why-this-is-better-even-if-its-more-verbose"></a>
+Every decision is right there, in plain sight, not hidden behind a prop API that nobody understands without reading component internals.
 
-## Why This Is Better (Even If It’s More Verbose)
+Rich Hickey (Clojure legend, smarter than all of us) said:
 
-Yes, this is more code.
+> _“Design means to break things apart in such a way that they can be put back together.”_ — [Rich Hickey](https://en.wikipedia.org/wiki/Rich_Hickey)
 
-But it is also:
+We broke it apart. Now let's put it back together.
 
-- more declarative
-- easier to reason about
-- easier to change
-- easier to test
+## But It's More Code! (And Why That's Fine, Actually)
 
-We write code for people to read and understand.
+I can hear you already:
 
-Not for the compiler.
+> _"But the composition version has more lines! That's less efficient!"_
 
-> Even perfect code is worthless if it can’t be changed.
+Let me tell you a secret: **the compiler doesn't care about your line count**. Your colleagues do. Your future self does. The person debugging a production incident at 11 PM on a Saturday? They **really** care.
 
-Composition makes change safer because it makes boundaries visible.
+Code is read far more often than it's written. We optimize for _write-time convenience_ at our peril.
 
-<a id="this-pattern-scales"></a>
+Here's what you actually get with composition:
 
-## This Pattern Scales
+| Concern             | Configuration (many props)                    | Composition (children) |
+| ------------------- | --------------------------------------------- | ---------------------- |
+| **Discoverability** | Hidden behind props                           | Visible in JSX         |
+| **Change impact**   | Touches component internals                   | Touches only call site |
+| **Testing**         | Test combinatorial explosion                  | Test isolated pieces   |
+| **Reasoning**       | "What does `displayVariant="detailed"` mean?" | "Oh, it's right there" |
 
-This problem does not stop at small components like `Avatar`.
+The configuration version _feels_ efficient because you typed less. But you didn't _reduce_ complexity. You **deferred** it. You packed it into a prop API where it will haunt you forever.
 
-The same pattern shows up in lists, tables, forms, and feature components.
+As my wise colleague once said: _"Even perfect code is worthless if it can't be changed."_
+
+## This Party Scales, I Promise
+
+You might be thinking: _"Okay, fine for an avatar. But what about REAL components — like that 65‑prop streaming beast?"_
+
+This is where the article becomes something you can actually use tomorrow.
+
+**The Configuration Disaster (what you're probably maintaining right now):**
 
 ```tsx
-<UserList
-  users={users}
-  showAvatar
-  showEmail
-  showRole
-  selectable
-  variant="compact"
+<StreamingPlatformSelector
+  platformName={platformName}
+  searchQuery={searchQuery}
+  setSearchQuery={setSearchQuery}
+  huluSearchResults={huluSearchResults}
+  huluTotalCount={huluTotalCount}
+  selectedHuluBrands={selectedHuluBrands}
+  setSelectedHuluBrands={setSelectedHuluBrands}
+  huluOffset={huluOffset}
+  setHuluOffset={setHuluOffset}
+  isHuluNextPageLoading={isHuluNextPageLoading}
+  // ... repeat for Peacock, Paramount, Discovery, Apple, Flickster, Netflix, Amazon
+  isAdvancedMode={isAdvancedMode}
+  regionCode={regionCode}
+  isEditFlow={isEditFlow}
+  // ... and 30 more props
 />
 ```
 
-This looks convenient.
+What does this actually _render_? No idea. The props tell me _what data exists_ but not _how it looks_. I have to go read the component to understand the layout.
 
-But it hides decisions.
+**The Composition Clarity (how to fix it):**
 
-Compare that to:
+First, make a **selfish** component for each platform:
 
 ```tsx
-<UserList>
-  {users.map((user) => (
-    <UserList.Item key={user.id} isSelected={selectedUserIds.has(user.id)}>
-      <Avatar size="sm">
-        <img src={user.avatarUrl} alt={user.name} />
-        {user.isOnline && <StatusIndicator />}
-      </Avatar>
+const PlatformSection = ({ platform, searchQuery, regionCode }) => {
+  // All the offsets, loading states, and selection logic live HERE
+  // Not leaking into the parent form
+  const { results, totalCount, isLoading, selectedItems, toggleItem, loadMore } = usePlatformSearch(
+    {
+      platform,
+      searchQuery,
+      regionCode,
+    },
+  );
 
-      <span>{user.name}</span>
-      <span>{user.email}</span>
-
-      {user.role === 'admin' && <Badge>Admin</Badge>}
-    </UserList.Item>
-  ))}
-</UserList>
+  return (
+    <Card title={`${platform} Results`}>
+      {results.map((item) => (
+        <Checkbox
+          key={item.id}
+          checked={selectedItems.has(item.id)}
+          onChange={() => toggleItem(item.id)}
+        >
+          {item.name}
+        </Checkbox>
+      ))}
+      {isLoading && <Spinner />}
+      {totalCount > results.length && <Button onClick={loadMore}>Load more</Button>}
+    </Card>
+  );
+};
 ```
 
-The difference is not just style.
+Then compose them:
 
-It’s visibility.
+```tsx
+<StreamingPlatformSelector>
+  <SearchInput value={searchQuery} onChange={setSearchQuery} />
 
-<a id="practical-heuristics"></a>
+  {/* Always-visible platforms */}
+  <PlatformSection platform="hulu" searchQuery={searchQuery} regionCode={regionCode} />
+  <PlatformSection platform="peacock" searchQuery={searchQuery} regionCode={regionCode} />
+  <PlatformSection platform="paramount" searchQuery={searchQuery} regionCode={regionCode} />
+  <PlatformSection platform="discovery" searchQuery={searchQuery} regionCode={regionCode} />
+  <PlatformSection platform="apple" searchQuery={searchQuery} regionCode={regionCode} />
 
-## Practical Heuristics
+  {/* Feature-flagged platforms */}
+  {isBetaFeatureChecked && (
+    <PlatformSection platform="flickster" searchQuery={searchQuery} regionCode={regionCode} />
+  )}
+  {isNetflixEnabled && (
+    <PlatformSection platform="netflix" searchQuery={searchQuery} regionCode={regionCode} />
+  )}
+  {isAmazonEnabled && (
+    <PlatformSection platform="amazon" searchQuery={searchQuery} regionCode={regionCode} />
+  )}
 
-Some useful signals:
+  <AdvancedModeToggle />
+  <RegionSelector />
+</StreamingPlatformSelector>
+```
 
-- adding features always means adding props → reconsider
-- props start interacting → design smell
-- domain logic appears in the component → extract it
-- usage hides structure → prefer composition
-- prop combinations need explanation → too much responsibility
+The difference isn't style. It's **visibility**.
 
-A simple rule:
+I can _see_ what's rendered. I can _see_ the conditionals (Flickster only if beta flag is on). I don't need to open another file. I don't need to remember what `isPeacockNextPageLoading` does. It's just... right there inside its own component.
 
-> If new use cases require new props, you’re probably solving the problem in the wrong place.
+And when product says "add a new platform"? I write one new `<PlatformSection platform="..."/>` line. I don't add **8 new props** to the parent. I don't touch the parent component at all.
 
-<a id="closing-thought"></a>
+That's not laziness. That's **strategic laziness**. And it's beautiful.
 
-## Closing Thought
+## The "Call an Ambulance" Checklist
 
-Good components are not the ones that handle everything.
+Here's how to know your component has gone to the dark side:
 
-They are the ones that make responsibilities obvious.
+🚨 **Adding features always means adding props** — You've built a prop-driven machine, not a component.  
+🚨 **Props start interacting** — When `showBadge` only works if `displayVariant="compact"`, you've created a state machine. In props. Help.  
+🚨 **Domain logic appears in the component** — If your avatar knows what an admin is, your boundaries have failed.  
+🚨 **Usage hides structure** — When you can't visualize the output without reading component code, you've lost.  
+🚨 **Prop combinations need explanation** — If you need documentation for "valid prop combinations," you've built something too complicated.  
+🚨 **You see repeated clusters of props** — `XSearchResults`, `XTotalCount`, `selectedXItems`, `setSelectedXItems`, `XOffset`, `setXOffset`, `isXNextPageLoading` for eight different X? That's a **reusable abstraction screaming to be born**.
 
-They don’t try to anticipate every variation.
-They define a boundary and stay clear within it.
+A simple rule to live by:
 
-> A good component doesn’t try to do everything.
-> It makes it easy to build anything.
+> **If new use cases require new props, you're solving the problem in the wrong place.**
 
-Attribution
+You shouldn't be teaching your component about the world. The world should be teaching your component — by composing it with other components.
+
+## The Part Where We Feel Things
+
+Here's the thing that took me years to learn:
+
+**Good components aren't the ones that handle everything.**
+
+Good components are the ones that make responsibilities obvious. They don't try to anticipate every variation. They define a boundary and stay clear within it. They say "no" so that your application can say "yes."
+
+**A selfish component isn't a bad teammate.** It's a focused one. It does one job, does it well, and trusts the rest of the system to do its part.
+
+> A good component doesn't try to do everything. It makes it easy to build anything.
+
+Now go forth. Write selfish components. Practice **strategic laziness**. And for the love of all that is holy, when you pass 10 props, at least stop and ask what kind of creature you are creating.
+
+_P.S. — If you're currently maintaining a 65‑prop component, I'm not saying you should quit. But I'm not saying you shouldn't. Stay strong. Refactor one platform at a time. You've got this._
 
 ---
 
-This article is inspired by Daniel Yuschick’s Smashing Magazine [article](https://www.smashingmagazine.com/2023/01/key-good-component-design-selfishness/) on _“selfish”_ component design.
+_This article was inspired by Daniel Yuschick's brilliant piece on ["selfish" component design](https://www.smashingmagazine.com/2023/01/key-good-component-design-selfishness/) — go read it. Then come back and write better components._
+
+_All code examples in this article are fictional and for educational purposes. Any resemblance to actual codebases — living or dead — is purely coincidental._
