@@ -104,7 +104,14 @@ Okay, getting a little crowded, but I see where this is going.
 Then design: "Admins should have a badge."
 
 ```tsx
-<Avatar src={user.profilePic} size="md" showStatus status="online" showBadge badgeContent="Admin" />
+<Avatar
+  src={user.profilePic}
+  size="md"
+  showStatus
+  status="online"
+  showBadge
+  badgeContent="Admin"
+/>
 ```
 
 Then engineering: "Can we add tooltips?"
@@ -294,13 +301,14 @@ First, make a **selfish** component for each platform:
 const PlatformSection = ({ platform, searchQuery, regionCode }) => {
   // All the offsets, loading states, and selection logic live HERE
   // Not leaking into the parent form
-  const { results, totalCount, isLoading, selectedItems, toggleItem, loadMore } = usePlatformSearch(
-    {
-      platform,
-      searchQuery,
-      regionCode,
-    },
-  );
+  const {
+    results,
+    totalCount,
+    isLoading,
+    selectedItems,
+    toggleItem,
+    loadMore,
+  } = usePlatformSearch({ platform, searchQuery, regionCode });
 
   return (
     <Card title={`${platform} Results`}>
@@ -314,7 +322,9 @@ const PlatformSection = ({ platform, searchQuery, regionCode }) => {
         </Checkbox>
       ))}
       {isLoading && <Spinner />}
-      {totalCount > results.length && <Button onClick={loadMore}>Load more</Button>}
+      {totalCount > results.length && (
+        <Button onClick={loadMore}>Load more</Button>
+      )}
     </Card>
   );
 };
@@ -327,21 +337,53 @@ Then compose them:
   <SearchInput value={searchQuery} onChange={setSearchQuery} />
 
   {/* Always-visible platforms */}
-  <PlatformSection platform="hulu" searchQuery={searchQuery} regionCode={regionCode} />
-  <PlatformSection platform="peacock" searchQuery={searchQuery} regionCode={regionCode} />
-  <PlatformSection platform="paramount" searchQuery={searchQuery} regionCode={regionCode} />
-  <PlatformSection platform="discovery" searchQuery={searchQuery} regionCode={regionCode} />
-  <PlatformSection platform="apple" searchQuery={searchQuery} regionCode={regionCode} />
+  <PlatformSection
+    platform="hulu"
+    searchQuery={searchQuery}
+    regionCode={regionCode}
+  />
+  <PlatformSection
+    platform="peacock"
+    searchQuery={searchQuery}
+    regionCode={regionCode}
+  />
+  <PlatformSection
+    platform="paramount"
+    searchQuery={searchQuery}
+    regionCode={regionCode}
+  />
+  <PlatformSection
+    platform="discovery"
+    searchQuery={searchQuery}
+    regionCode={regionCode}
+  />
+  <PlatformSection
+    platform="apple"
+    searchQuery={searchQuery}
+    regionCode={regionCode}
+  />
 
   {/* Feature-flagged platforms */}
   {isBetaFeatureChecked && (
-    <PlatformSection platform="flickster" searchQuery={searchQuery} regionCode={regionCode} />
+    <PlatformSection
+      platform="flickster"
+      searchQuery={searchQuery}
+      regionCode={regionCode}
+    />
   )}
   {isNetflixEnabled && (
-    <PlatformSection platform="netflix" searchQuery={searchQuery} regionCode={regionCode} />
+    <PlatformSection
+      platform="netflix"
+      searchQuery={searchQuery}
+      regionCode={regionCode}
+    />
   )}
   {isAmazonEnabled && (
-    <PlatformSection platform="amazon" searchQuery={searchQuery} regionCode={regionCode} />
+    <PlatformSection
+      platform="amazon"
+      searchQuery={searchQuery}
+      regionCode={regionCode}
+    />
   )}
 
   <AdvancedModeToggle />
